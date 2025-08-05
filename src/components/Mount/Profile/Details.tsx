@@ -1,15 +1,14 @@
 import { createThemeContext } from '@/Context/context'
-import { contactData } from '@/data/data';
+import { contactData, details } from '@/data/data';
 import { FaGithub } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { PiReadCvLogoBold } from "react-icons/pi";
 import { FaRegHandshake } from "react-icons/fa";
-import { SiFunimation, SiTypescript } from "react-icons/si";
+import { SiFunimation } from "react-icons/si";
 import Live from '@/components/Animated/Live';
 import { FaRunning } from "react-icons/fa";
 import { GrTechnology } from "react-icons/gr";
-import { RiNextjsFill, RiReactjsFill } from "react-icons/ri";
 
 const Details = () => {
     const {LightTheme} = createThemeContext()
@@ -30,7 +29,7 @@ const Details = () => {
             </a>
         </section>
         <div className='text-[15px] m-1'>
-          <a href={`mailto:${contactData.email}`} className='transition-scale duration-200 ease-in-out flex items-center font-bold gap-1 break-all text-sm'>
+          <a href={`mailto:${contactData.email}`} className='transition-scale duration-200 ease-in-out flex items-center  gap-1 break-all text-md'>
                 <MdAttachEmail className='w-5 h-5 cursor-pointer hover:scale-115 scale-100 transition-scale duration-300 ease-in-out'/> <h2>{contactData.email}</h2>
           </a>    
         </div>
@@ -44,20 +43,16 @@ const Details = () => {
           </section>
           <section className='flex gap-1 items-center'>
             <FaRegHandshake className='w-4 h-4 hover:scale-115 scale-100 cursor-pointer'/>
-            <h1>Employment - unemployed</h1>
+            <h1>Employment -{details.employement}</h1>
           </section>
           <section className='flex gap-1 items-center'>
             <SiFunimation className='w-4 h-4 hover:scale-115 scale-100 cursor-pointer'/>
-            <h1>one fact - I love persona</h1>
+            <h1>one fact -{details.favGame}</h1>
           </section>
           <section className='flex gap-1 items-center'>
             <GrTechnology className='w-4 h-4 hover:scale-115 scale-100 cursor-pointer'/>
             <h1>Tech Stack -</h1> 
-            <span className='flex gap-2 items-center'>
-              <RiNextjsFill className='hover:scale-115 scale-100 cursor-pointer'/>
-              <SiTypescript className='hover:scale-115 scale-100 cursor-pointer'/>
-              <RiReactjsFill className='hover:scale-115 scale-100 cursor-pointer'/>
-            </span>
+            {details.techstack}
           </section>
         </div>
     </div>

@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const Context_Provider = createContext<null | any>(null);
 
 export const Context_Provider_wrap = ({children}:{children:React.ReactNode}) =>{
-    const [LightTheme,setTheme] = useState(true)
+    const [LightTheme,setTheme] = useState(false)
     const [count,setCount] = useState(0)
     const Values = {
         LightTheme,

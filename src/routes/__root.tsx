@@ -19,9 +19,9 @@ function layOuts() {
 
    if(loading) return <div className='flex justify-center items-center w-screen h-screen'><Loader/></div>
   return (
-    <div className={`${LightTheme ? 'bg-white Grind-black' : 'bg-black Grind-white'} transition-bg duration-300 ease-in-out min-h-screen`}>
+    <div className={`${LightTheme ? 'bg-white Grind-black' : 'bg-black Grind-white'} transition-bg duration-300 ease-in-out min-h-screen h-screen overflow-y-scroll scroll-smooth scroll_bar_ scroll_bar_thumb`}>
       <div className={`lg:mx-70 md:mx-40 mx-5 flex justify-center h-full`}>
-        <div className="lg:max-w-[50vw] min-w-[10vw] shrinked">
+        <div className="lg:w-[55vw] h-full shrinked">
           <Nav />
           <section className="mt-10">
             <Outlet />

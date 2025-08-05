@@ -14,7 +14,7 @@ export const Route = createFileRoute('/')({
 function App() {
    return (
     <div>
-      <div className={`flex flex-col gap-2 break-words`}>
+      <div className={`flex flex-col gap-2 break-words h-screen`}>
         <section>
           <Cover />
         </section>
@@ -27,16 +27,16 @@ function App() {
           </div>
         </section>
         <section>
+          <Skills/>
+        </section>
+        <section>
           <Projects />
         </section>
         {/* after project we do lazy loading */}
         <section>
-          <Skills/>
-        </section>
-        <section>
           <Notes/>
         </section>
-        <footer>
+        <footer className='w-full'>
           <Footer/>
         </footer>
       </div>

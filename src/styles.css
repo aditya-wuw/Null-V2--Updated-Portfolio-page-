@@ -7,8 +7,18 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
+.scroll_bar_::-webkit-scrollbar{
+  width: 5px;
+  background-color: white;
+}
+
+.scroll_bar_thumb::-webkit-scrollbar-thumb{
+  width: 5px;
+  background-color: black;
+}
 code {
   font-family:
     source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -36,7 +46,6 @@ code {
   .shrinked {
     margin-left: 25%;
     margin-right: 25%;
-    background-color: aquamarine;
   }
 }
 @media (width > 3300px) {
@@ -49,14 +58,12 @@ code {
   .shrinked {
     margin-left: 37%;
     margin-right: 37%;
-    background-color: brown;
   }
 }
 @media (width > 3900px) {
   .shrinked {
     margin-left: 40%;
     margin-right: 40%;
-    background-color: rgb(169, 219, 196);
   }
 }
 
