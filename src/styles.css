@@ -9,15 +9,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
 }
-
+.scroll-hidden_::-webkit-scrollbar{
+  display: none;
+}
 .scroll_bar_::-webkit-scrollbar{
   width: 5px;
-  background-color: white;
 }
 
 .scroll_bar_thumb::-webkit-scrollbar-thumb{
   width: 5px;
-  background-color: black;
+  background-color: rgb(134, 133, 133);
 }
 code {
   font-family:

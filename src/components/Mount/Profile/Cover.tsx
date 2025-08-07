@@ -1,15 +1,16 @@
+import {motion} from 'motion/react'
+import React from 'react'
 
-import cover from '/cover_art_placeholder.webp'
-
-const Cover = () => {
-
+const Cover = React.memo(() => {
   return (
-    <div className='w-full h-40 max-h-50 overflow-hidden rounded-2xl relative select-none'>
-        <a href="https://wall.alphacoders.com/big.php?i=1364253" target='_black'>
-            <img src={cover} alt="cover.png" className='object-cover w-full h-full object-center'/>
-        </a>
-    </div>
+        <motion.a href="https://wall.alphacoders.com/big.php?i=1364253" target='_black'
+          initial={{opacity:0}}
+          animate={{opacity:1}}
+          transition={{duration:1.2, ease:'easeIn'}}
+        >
+          <img fetchPriority='high' src='/Images_Optimized/Cover/cover_art_411.webp' srcSet='/Images_Optimized/Cover/cover_art_754.webp 1x, /Images_Optimized/Cover/cover_art_1080.webp 2x, /Images_Optimized/Cover/cover_art_fullres.webp 3x' alt="cover.png" className={`object-cover w-full h-full object-center`} width={2250} height={1200}/>
+        </motion.a>
   )
-}
+})
 
 export default Cover

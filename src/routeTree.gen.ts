@@ -10,43 +10,90 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProjectsProject1RouteImport } from './routes/projects/project1'
+import { Route as ProjectsDashbordRouteImport } from './routes/projects/dashbord'
+import { Route as ProjectsMogger_AIRouteImport } from './routes/projects/Mogger_AI'
+import { Route as ProjectsLevel_UPRouteImport } from './routes/projects/Level_UP'
+import { Route as ProjectsFireShip_Discord_botRouteImport } from './routes/projects/FireShip_Discord_bot'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsProject1Route = ProjectsProject1RouteImport.update({
-  id: '/projects/project1',
-  path: '/projects/project1',
+const ProjectsDashbordRoute = ProjectsDashbordRouteImport.update({
+  id: '/projects/dashbord',
+  path: '/projects/dashbord',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsMogger_AIRoute = ProjectsMogger_AIRouteImport.update({
+  id: '/projects/Mogger_AI',
+  path: '/projects/Mogger_AI',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsLevel_UPRoute = ProjectsLevel_UPRouteImport.update({
+  id: '/projects/Level_UP',
+  path: '/projects/Level_UP',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsFireShip_Discord_botRoute =
+  ProjectsFireShip_Discord_botRouteImport.update({
+    id: '/projects/FireShip_Discord_bot',
+    path: '/projects/FireShip_Discord_bot',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/projects/project1': typeof ProjectsProject1Route
+  '/projects/FireShip_Discord_bot': typeof ProjectsFireShip_Discord_botRoute
+  '/projects/Level_UP': typeof ProjectsLevel_UPRoute
+  '/projects/Mogger_AI': typeof ProjectsMogger_AIRoute
+  '/projects/dashbord': typeof ProjectsDashbordRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/projects/project1': typeof ProjectsProject1Route
+  '/projects/FireShip_Discord_bot': typeof ProjectsFireShip_Discord_botRoute
+  '/projects/Level_UP': typeof ProjectsLevel_UPRoute
+  '/projects/Mogger_AI': typeof ProjectsMogger_AIRoute
+  '/projects/dashbord': typeof ProjectsDashbordRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/projects/project1': typeof ProjectsProject1Route
+  '/projects/FireShip_Discord_bot': typeof ProjectsFireShip_Discord_botRoute
+  '/projects/Level_UP': typeof ProjectsLevel_UPRoute
+  '/projects/Mogger_AI': typeof ProjectsMogger_AIRoute
+  '/projects/dashbord': typeof ProjectsDashbordRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects/project1'
+  fullPaths:
+    | '/'
+    | '/projects/FireShip_Discord_bot'
+    | '/projects/Level_UP'
+    | '/projects/Mogger_AI'
+    | '/projects/dashbord'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects/project1'
-  id: '__root__' | '/' | '/projects/project1'
+  to:
+    | '/'
+    | '/projects/FireShip_Discord_bot'
+    | '/projects/Level_UP'
+    | '/projects/Mogger_AI'
+    | '/projects/dashbord'
+  id:
+    | '__root__'
+    | '/'
+    | '/projects/FireShip_Discord_bot'
+    | '/projects/Level_UP'
+    | '/projects/Mogger_AI'
+    | '/projects/dashbord'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProjectsProject1Route: typeof ProjectsProject1Route
+  ProjectsFireShip_Discord_botRoute: typeof ProjectsFireShip_Discord_botRoute
+  ProjectsLevel_UPRoute: typeof ProjectsLevel_UPRoute
+  ProjectsMogger_AIRoute: typeof ProjectsMogger_AIRoute
+  ProjectsDashbordRoute: typeof ProjectsDashbordRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,11 +105,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/project1': {
-      id: '/projects/project1'
-      path: '/projects/project1'
-      fullPath: '/projects/project1'
-      preLoaderRoute: typeof ProjectsProject1RouteImport
+    '/projects/dashbord': {
+      id: '/projects/dashbord'
+      path: '/projects/dashbord'
+      fullPath: '/projects/dashbord'
+      preLoaderRoute: typeof ProjectsDashbordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/Mogger_AI': {
+      id: '/projects/Mogger_AI'
+      path: '/projects/Mogger_AI'
+      fullPath: '/projects/Mogger_AI'
+      preLoaderRoute: typeof ProjectsMogger_AIRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/Level_UP': {
+      id: '/projects/Level_UP'
+      path: '/projects/Level_UP'
+      fullPath: '/projects/Level_UP'
+      preLoaderRoute: typeof ProjectsLevel_UPRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/FireShip_Discord_bot': {
+      id: '/projects/FireShip_Discord_bot'
+      path: '/projects/FireShip_Discord_bot'
+      fullPath: '/projects/FireShip_Discord_bot'
+      preLoaderRoute: typeof ProjectsFireShip_Discord_botRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -70,7 +138,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProjectsProject1Route: ProjectsProject1Route,
+  ProjectsFireShip_Discord_botRoute: ProjectsFireShip_Discord_botRoute,
+  ProjectsLevel_UPRoute: ProjectsLevel_UPRoute,
+  ProjectsMogger_AIRoute: ProjectsMogger_AIRoute,
+  ProjectsDashbordRoute: ProjectsDashbordRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

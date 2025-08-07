@@ -1,5 +1,4 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import Nav from '@/components/Nav'
 import { createThemeContext } from '@/Context/context'
 import { useEffect, useState } from 'react'
@@ -21,11 +20,10 @@ function layOuts() {
   return (
     <div className={`${LightTheme ? 'bg-white Grind-black' : 'bg-black Grind-white'} transition-bg duration-300 ease-in-out min-h-screen h-screen overflow-y-scroll scroll-smooth scroll_bar_ scroll_bar_thumb`}>
       <div className={`lg:mx-70 md:mx-40 mx-5 flex justify-center h-full`}>
-        <div className="lg:w-[55vw] h-full shrinked">
+        <div className="lg:w-[55vw] max-lg:w-[90vw] h-full shrinked">
           <Nav />
           <section className="mt-10">
             <Outlet />
-            <TanStackRouterDevtools />
           </section>
         </div>
       </div>

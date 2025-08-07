@@ -1,15 +1,10 @@
 import { assets } from '../Assets/assets'
-import { FaFigma, FaNodeJs, FaPython, FaReact } from 'react-icons/fa'
-import { RiNextjsFill, RiReactjsFill, RiVideoOnAiFill } from 'react-icons/ri'
-import {
-  SiAdobephotoshop,
-  SiMongodb,
-  SiSupabase,
-  SiTypescript,
-} from 'react-icons/si'
-import { RiTailwindCssFill } from 'react-icons/ri'
-import { PiFileSql } from 'react-icons/pi'
-import { GrGithub } from 'react-icons/gr'
+
+import { FaFigma, FaNodeJs, FaPython, FaReact } from 'react-icons/fa';
+import { RiNextjsFill, RiReactjsFill, RiVideoOnAiFill, RiTailwindCssFill } from 'react-icons/ri';
+import { SiAdobephotoshop, SiMongodb, SiSupabase, SiTypescript } from 'react-icons/si';
+import { PiFileSql } from 'react-icons/pi';
+import { GrGithub } from 'react-icons/gr';
 
 export const navLinks = [
   { id: 'skills', label: 'Skills' },
@@ -86,7 +81,7 @@ export const projectsData = {
   items: [
     {
       title: 'Mogger AI',
-      Link: 'project1',
+      Link: 'Mogger_AI',
       description:
         'AI-powered web app that generates personalized mock tests to help students prepare effectively for exams.',
       image: assets.screenshot2,
@@ -104,7 +99,7 @@ export const projectsData = {
     },
     {
       title: 'FireShip Discord bot',
-      Link: 'project2',
+      Link: 'FireShip_Discord_bot',
       description:
         'FireShip bot is a Discord bot designed to keep users up to date with the latest videos',
       image: assets.Fireship,
@@ -122,7 +117,7 @@ export const projectsData = {
     },
     {
       title: 'HMS-dashbord',
-      Link: 'project3',
+      Link: 'HMS-dashbord',
       description:
         'Was tasked to build a Admin Hospital Management System Dashbord, no auth you can directly check the live demo',
       image: assets.screenshot5,
@@ -140,7 +135,7 @@ export const projectsData = {
     },
     {
       title: 'Level UP',
-      Link: 'project4',
+      Link: 'Level_UP',
       description:
         'Task manager app with a level up theme.where users can grain xp from completing tasks',
       image: assets.screenshot1,
@@ -173,7 +168,7 @@ export const Notes_blog = [
     date: "20th dec 2025",
   },
   {
-    tittle:"Today I laerdddddddned to be a brave ddddman big dick man",
+    tittle:"Today I laerdddddddned to be a brave ddddman big man",
     link:"Notes/brave_man",
     date:"20th dec 2025",
   }

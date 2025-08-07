@@ -1,5 +1,4 @@
 import { createThemeContext } from '@/Context/context'
-import { assets } from '@/Assets/assets'
 import { heroData } from '@/data/data'
 export default function Header() {
   const { LightTheme } = createThemeContext()
@@ -13,9 +12,12 @@ export default function Header() {
         <div className='relative top-1'>
           <div className="w-10 h-10 rounded-full overflow-hidden">
             <img
-              src={assets.Logo_nullfaced_dev}
+              src='/Images_Optimized/Profile/logo_252.png'
+              loading='lazy'
               alt="Logo_nullfaced_dev.png"
               className="object-cover object-center"
+              width={256}
+              height={256}
             />
           </div>
         </div>

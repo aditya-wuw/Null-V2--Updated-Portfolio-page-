@@ -1,16 +1,16 @@
 import { createThemeContext } from '@/Context/context'
 import { contactData, details } from '@/data/data';
-import { FaGithub } from "react-icons/fa";
+
+import { FaGithub, FaLinkedin, FaRegHandshake, FaRunning } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
-import { FaLinkedin } from "react-icons/fa";
 import { PiReadCvLogoBold } from "react-icons/pi";
-import { FaRegHandshake } from "react-icons/fa";
 import { SiFunimation } from "react-icons/si";
-import Live from '@/components/Animated/Live';
-import { FaRunning } from "react-icons/fa";
 import { GrTechnology } from "react-icons/gr";
 
-const Details = () => {
+import React, { Suspense } from 'react';
+const Live = React.lazy(()=>import('@/components/Animated/Live'))
+
+const Details = React.memo(() => {
     const {LightTheme} = createThemeContext()
   return (
     <div
@@ -38,7 +38,9 @@ const Details = () => {
             <FaRunning className='w-4 h-4 hover:scale-115 scale-100 cursor-pointer'/>
             <h1>Going to - College</h1>
             <div>
-              <Live status='Currently 3rd year'/>
+              <Suspense>
+                <Live status='Currently 3rd year'/>
+              </Suspense>
             </div>
           </section>
           <section className='flex gap-1 items-center'>
@@ -57,6 +59,6 @@ const Details = () => {
         </div>
     </div>
   )
-}
+})
 
 export default Details

@@ -3,6 +3,10 @@ import { MdLightMode } from 'react-icons/md'
 
 const Nav = () => {
   const { LightTheme, setTheme } = createThemeContext()
+  function Themeing() {
+    localStorage.setItem('theme',!LightTheme ? 'Light' : 'dark')
+    setTheme(!LightTheme)
+  }
   return (
     <div
       className={`sticky top-5 z-50 w-full max-h-20 backdrop-blur-md p-2 rounded-xl ${LightTheme ? 'bg-blue-500/15' : 'bg-gray-200/10'} transition-bg duration-300 ease-in-out`}
@@ -14,7 +18,7 @@ const Nav = () => {
           AM
         </h1>
         <button
-          onClick={() => setTheme(!LightTheme)}
+          onClick={Themeing}
           className={`p-2 hover:bg-blue-500/20 transition-all ease-in-out rounded-sm cursor-pointer`}
         >
           {' '}

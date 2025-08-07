@@ -1,8 +1,9 @@
 import { createThemeContext } from '@/Context/context'
 import { projectsData } from '@/data/data'
 import { useNavigate } from '@tanstack/react-router'
+import React from 'react'
 
-const Projects = () => {
+const Projects = React.memo(() => {
   const { LightTheme } = createThemeContext()
   const Route = useNavigate()
   function Navigate(link: string) {
@@ -10,14 +11,14 @@ const Projects = () => {
   }
   return (
     <div
-      className={`p-[1px]  ${LightTheme ? 'bg-gradient-to-l from-neutral-500 text-black  rounded-xl ' : 'bg-gradient-to-r from-neutral-500 text-white  rounded-xl'}`}
+      className={`p-[1px] select-none  ${LightTheme ? 'bg-gradient-to-l from-neutral-500 text-black  rounded-xl ' : 'bg-gradient-to-r from-neutral-500 text-white  rounded-xl'}`}
     >
       <div className={`p-3 rounded-xl ${LightTheme ? 'bg-white' : 'bg-black text-white  rounded-xl'}`}>
         <h1 className="text-xl font-bold mx-2">Projects</h1>
         <section className="project_section mt-4 xl:grid xl:grid-cols-2 place-items-center max-xl:flex max-xl:flex-col gap-3 h-full">
           {projectsData.items.map((item, i) => (
             <div
-              className="project_comp relative min-h-55 max-h-60 w-full h-55 border overflow-hidden cursor-pointer rounded-xl"
+              className="project_comp relative min-h-55 max-h-60 w-full h-55 border overflow-hidden rounded-xl"
               key={i}
             >
               <div className="Image_comp h-[30%]">
@@ -33,11 +34,12 @@ const Projects = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading='lazy'
                     className="object-cover object-center cursor-pointer hover:scale-105 scale-100 transition duration-300 ease-in-out w-full h-full"
                   />
                 </a>
               </div>
-              <div className="p-3 select-none" onClick={() => Navigate(item.Link)}>
+              <div className="p-3 select-none cursor-pointer" onClick={() => Navigate(item.Link)}>
                 <h1 className="text-xl font-bold">{item.title}</h1>
                 <h1 className="lg:text-sm text-xs">{item.description}</h1>
               </div>
@@ -73,6 +75,6 @@ const Projects = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Projects

@@ -1,5 +1,8 @@
 import {motion} from 'motion/react'
-const Live = ({status}:{status:string}) => {
+import React from 'react'
+
+
+const Live = React.memo(({status}:{status:string}) => {
   return (
     <button className="relative w-6 h-6  cursor-pointer" title={status}
     >
@@ -10,6 +13,6 @@ const Live = ({status}:{status:string}) => {
         />
     </button>
   )
-}
+})
 
 export default Live

@@ -1,5 +1,5 @@
 {
-  "name": ".",
+  "name": "null_v2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,16 +13,14 @@
     "check": "prettier --write . && eslint --fix"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-router": "^1.130.12",
-    "@tanstack/react-router-devtools": "^1.130.2",
     "@tanstack/router-plugin": "^1.121.2",
     "motion": "^12.23.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-spinners": "^0.17.0",
-    "tailwindcss": "^4.0.6"
+    "@tailwindcss/vite": "^4.0.6"
   },
   "devDependencies": {
     "@tanstack/eslint-config": "^0.1.0",
