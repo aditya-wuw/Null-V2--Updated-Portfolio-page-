@@ -3,7 +3,7 @@ import { FaClock } from "react-icons/fa";
 
 const Footer = () => {
     const {LightTheme} = createThemeContext()
-    const lastupdated = '4th Aug'
+    const lastupdated = '11th Aug'
   return (
     <div className={`p-3 rounded-t-2xl text-center ${LightTheme ?  "bg-white text-black border border-black/30" : "bg-black text-white border border-white/30"}`}>
       <h1>All rights reserved © Aditya Mandal</h1>
