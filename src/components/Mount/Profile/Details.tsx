@@ -24,7 +24,7 @@ const Details = React.memo(() => {
              <a href={contactData.linkedIN} target='_blank'>
                 <FaLinkedin className='w-5 h-5 cursor-pointer hover:scale-115 scale-100 transition-scale duration-300 ease-in-out'/>
             </a>
-             <a href={contactData.CV} target='_blank' className='flex items-center font-bold hover:scale-115 scale-100 transition-scale duration-300 ease-in-out'>
+             <a href={contactData.CV} target='_blank' className='flex items-center font-bold hover:scale-115 scale-100 transition-scale duration-300 ease-in-out animate-bounce'>
                 <PiReadCvLogoBold className='w-5 h-5 cursor-pointer '/><h1>CV</h1>
             </a>
         </section>

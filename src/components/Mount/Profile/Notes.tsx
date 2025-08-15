@@ -1,20 +1,26 @@
 import { createThemeContext } from '@/Context/context'
 import { Notes_blog } from '@/data/data'
+import { useNavigate } from '@tanstack/react-router';
 import React from 'react';
 import { TbPointFilled } from "react-icons/tb";
 
 const Notes = React.memo(() => {
   const { LightTheme } = createThemeContext()
+  const Router = useNavigate()
+  const hadnleclick = (e:string) =>{
+    Router({to: `/Notes/${e}`})
+  }
   return (
     <div
       className={`p-3 select-none ${LightTheme ? 'bg-white text-black  rounded-xl' : 'bg-black text-white rounded-xl'}`}
     >
-      <div className='mx-3'>
+      <div className='mx-2'>
         <h1 className="text-xl font-bold">Notes</h1>
         <h1>My take and notes on development, events or creative ideas</h1>
-        <div className='mt-3 relative'>
+        <div className='mt-3 relative h-fit'>
+          <div className='h-full absolute border-l top-4 left-2'/>
           {Notes_blog.map((item, i) => (
-            <div key={i} className='flex gap-2 mb-5'>
+            <div key={i} className='flex gap-2 mb-5' onClick={()=>hadnleclick(item.link)}>
               <div>
                 <TbPointFilled className='mt-1'/>
               </div>
@@ -24,9 +30,9 @@ const Notes = React.memo(() => {
               </section>
             </div>
           ))}
-          <div className='h-[80%] absolute border-l top-3 left-2'/>
         </div>
       </div>
+      <TbPointFilled className='relative left-[8.3px] bottom-0'/>
     </div>
   )
 })

@@ -1,12 +1,11 @@
 import { createThemeContext } from '@/Context/context'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBackward, FaForward, FaPause, FaPlay } from 'react-icons/fa'
 import { FaCompactDisc } from 'react-icons/fa6'
 import {
   animate,
   motion,
-  useMotionValue,
-  type AnimationPlaybackControls,
+  useMotionValue
 } from 'motion/react'
 import { HiMiniSpeakerWave } from 'react-icons/hi2'
 import { PiSpeakerXFill } from 'react-icons/pi'
@@ -14,13 +13,10 @@ import { PiSpeakerXFill } from 'react-icons/pi'
 const MusicEmbed = React.memo(() => {
   // do somthing later
   // want to import a data object of the full play list where I'll want to store the background and sound track
-  const Music_ref = useRef<HTMLAudioElement | null>(null)
+  const { LightTheme,Music_ref,Rotate_control_ref,isplaying,setplaying } = createThemeContext()
   const [volume_Value, setVolumeValue] = useState(20)
-  const Rotate_control_ref = useRef<AnimationPlaybackControls | null>(null)
   const [duration, setduration] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
-  const { LightTheme } = createThemeContext()
-  const [isplaying, setplaying] = useState(false)
   const rotate = useMotionValue(0)
   const [ismute, setmute] = useState(false)
   const [ShowVolume, setShowVolume] = useState(false)
@@ -56,7 +52,7 @@ const MusicEmbed = React.memo(() => {
   useEffect(() => {
     const check_window = () => {
       if (window.innerWidth <= 1024) {
-        setShowVolume(true)
+        setShowVolume(false)
       }
     }
     check_window()
@@ -88,7 +84,7 @@ const MusicEmbed = React.memo(() => {
       const audio = Music_ref.current
       if (!audio) return
       if (!isplaying) {
-        audio.play().catch((e)=>console.warn(e))
+        audio.play().catch((e:Error)=>console.warn(e))
         Rotate_control_ref.current?.play()
         setplaying(true)
       } else if (isplaying) {
@@ -133,7 +129,7 @@ const MusicEmbed = React.memo(() => {
       audio.currentTime = duration * (Target / 100)
       if (!isDraging) {
         setTimeout(() => {
-          audio.play().catch((e)=>console.warn(e))
+          audio.play().catch((e:Error)=>console.warn(e))
           Rotate_control_ref.current?.play()
           setplaying(true)
         }, 100)
@@ -156,9 +152,9 @@ const MusicEmbed = React.memo(() => {
 
   return (
     <div
-      className={`w-full h-full select-none relative rounded-2xl overflow-hidden ${LightTheme ? 'bg-blue-500' : 'bg-blue-700'}`}
+      className={`w-full h-full select-none relative rounded-2xl  ${LightTheme ? 'bg-blue-500' : 'bg-blue-700'}`}
     >
-      <div className="p-2">
+      <div className="w-full h-full p-2 overflow-hidden relative rounded-2xl">
         {/* dinamically change the background based on the cover picture of the music */}
         <img
           src="/Images_Optimized/Cover/cover_art_411.webp"
@@ -172,7 +168,7 @@ const MusicEmbed = React.memo(() => {
           <FaCompactDisc className="scale-400 w-full h-5" />
         </motion.div>
 
-        <div className="relative translate-y-8 z-10 w-full px-4">
+        <div className="relative translate-y-8 z-13 w-full px-4">
           <section
             className="p-1 pr-3 flex absolute bottom-5 left-5 xl:w-30 max-xl:w-25 items-center gap-3"
             onMouseEnter={() => setShowVolume(true)}
@@ -212,7 +208,7 @@ const MusicEmbed = React.memo(() => {
             </div>
           </section>
           <section className="player_control w-full flex gap-3 px-2">
-            <div className="seek_bar relative w-full translate-y-1 flex items-center">
+            <div className="seek_bar relative z-10 w-full translate-y-1 flex items-center">
               <input
                 type="range"
                 name="timeline"
