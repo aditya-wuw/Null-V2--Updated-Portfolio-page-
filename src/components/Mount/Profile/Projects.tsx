@@ -13,7 +13,8 @@ const Projects = React.memo(() => {
   }
   const [islist, setislist] = useState(false)
   const [disabled, setdisabled] = useState(false)
-
+  const [duration,setduration] = useState(0)
+  
   const check_WindowSize = () => {
     setislist(window.innerWidth > 1024)
     setdisabled(window.innerWidth < 1280)
@@ -26,6 +27,11 @@ const Projects = React.memo(() => {
       window.removeEventListener('resize', check_WindowSize)
     }
   }, [])
+  
+  const handleClick = () =>{
+    setduration(0.13)
+    setislist((prev)=>!prev)
+  }
 
   return (
     <div
@@ -39,7 +45,7 @@ const Projects = React.memo(() => {
             <h1 className="text-xl font-bold">Projects</h1>
             <button
               className={`${disabled && 'hidden'} scale-115 cursor-pointer hover:scale-120 transition-scale duration-200 ease-in-out`}
-              onClick={() => setislist((prev) => !prev)}
+              onClick={handleClick}
             >
               {islist ? <MdGridView /> : <FaList />}
             </button>
@@ -56,7 +62,7 @@ const Projects = React.memo(() => {
               whileInView={{
                 y:[20,0]
               }}
-              transition={{ duration: 0.15, ease: 'easeInOut' }}
+              transition={{ duration: duration, ease: 'easeInOut' }}
             >
               <div className="Image_comp h-[30%]">
                 <a
