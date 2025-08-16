@@ -25,8 +25,8 @@ const Notes = React.memo(() => {
                 <TbPointFilled className='mt-1'/>
               </div>
               <section className={` px-4 py-2 rounded-2xl cursor-pointer ${LightTheme ? 'hover:bg-blue-200' : 'hover:bg-blue-500'}`}>
-                <h1>{item.tittle}</h1>
-                <h1>{item.date as unknown as string}</h1>
+                <h1>{item.title}</h1>
+                <h1>{item.date}</h1>
               </section>
             </div>
           ))}

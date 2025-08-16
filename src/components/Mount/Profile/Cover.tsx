@@ -7,7 +7,6 @@ const Cover = React.memo(() => {
   const AMinView = useRef<HTMLAnchorElement | null>(null)
   const isInView = useInView(AMinView)
   useEffect(() => {
-    console.log(isInView)
       setisinView(isInView)
   }, [isInView])
   return (

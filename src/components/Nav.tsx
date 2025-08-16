@@ -18,7 +18,7 @@ const Nav = () => {
        <h1
           className={`md:text-xl text-md font-extrabold tracking-[2px] ${LightTheme ? 'text-blue-500/50' : 'text-sky-600'}`}
         >
-          <Link to="/" className={`${!InView && "opacity-100"} opacity-0 transition-opacity duration-600 ease-in-out`}>AM</Link>   
+          <Link to="/" className={`${!InView && "opacity-100 cursor-pointer"} opacity-0 cursor-default transition-opacity duration-600 ease-in-out`}>AM</Link>   
         </h1>
         <button
           onClick={Themeing}

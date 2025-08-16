@@ -10,90 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProjectsDashbordRouteImport } from './routes/projects/dashbord'
-import { Route as ProjectsMogger_AIRouteImport } from './routes/projects/Mogger_AI'
-import { Route as ProjectsLevel_UPRouteImport } from './routes/projects/Level_UP'
-import { Route as ProjectsFireShip_Discord_botRouteImport } from './routes/projects/FireShip_Discord_bot'
+import { Route as ProjectsPidRouteImport } from './routes/projects/$pid'
+import { Route as NotesPageRouteImport } from './routes/Notes/$page'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsDashbordRoute = ProjectsDashbordRouteImport.update({
-  id: '/projects/dashbord',
-  path: '/projects/dashbord',
+const ProjectsPidRoute = ProjectsPidRouteImport.update({
+  id: '/projects/$pid',
+  path: '/projects/$pid',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsMogger_AIRoute = ProjectsMogger_AIRouteImport.update({
-  id: '/projects/Mogger_AI',
-  path: '/projects/Mogger_AI',
+const NotesPageRoute = NotesPageRouteImport.update({
+  id: '/Notes/$page',
+  path: '/Notes/$page',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsLevel_UPRoute = ProjectsLevel_UPRouteImport.update({
-  id: '/projects/Level_UP',
-  path: '/projects/Level_UP',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsFireShip_Discord_botRoute =
-  ProjectsFireShip_Discord_botRouteImport.update({
-    id: '/projects/FireShip_Discord_bot',
-    path: '/projects/FireShip_Discord_bot',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/projects/FireShip_Discord_bot': typeof ProjectsFireShip_Discord_botRoute
-  '/projects/Level_UP': typeof ProjectsLevel_UPRoute
-  '/projects/Mogger_AI': typeof ProjectsMogger_AIRoute
-  '/projects/dashbord': typeof ProjectsDashbordRoute
+  '/Notes/$page': typeof NotesPageRoute
+  '/projects/$pid': typeof ProjectsPidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/projects/FireShip_Discord_bot': typeof ProjectsFireShip_Discord_botRoute
-  '/projects/Level_UP': typeof ProjectsLevel_UPRoute
-  '/projects/Mogger_AI': typeof ProjectsMogger_AIRoute
-  '/projects/dashbord': typeof ProjectsDashbordRoute
+  '/Notes/$page': typeof NotesPageRoute
+  '/projects/$pid': typeof ProjectsPidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/projects/FireShip_Discord_bot': typeof ProjectsFireShip_Discord_botRoute
-  '/projects/Level_UP': typeof ProjectsLevel_UPRoute
-  '/projects/Mogger_AI': typeof ProjectsMogger_AIRoute
-  '/projects/dashbord': typeof ProjectsDashbordRoute
+  '/Notes/$page': typeof NotesPageRoute
+  '/projects/$pid': typeof ProjectsPidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/projects/FireShip_Discord_bot'
-    | '/projects/Level_UP'
-    | '/projects/Mogger_AI'
-    | '/projects/dashbord'
+  fullPaths: '/' | '/Notes/$page' | '/projects/$pid'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/projects/FireShip_Discord_bot'
-    | '/projects/Level_UP'
-    | '/projects/Mogger_AI'
-    | '/projects/dashbord'
-  id:
-    | '__root__'
-    | '/'
-    | '/projects/FireShip_Discord_bot'
-    | '/projects/Level_UP'
-    | '/projects/Mogger_AI'
-    | '/projects/dashbord'
+  to: '/' | '/Notes/$page' | '/projects/$pid'
+  id: '__root__' | '/' | '/Notes/$page' | '/projects/$pid'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProjectsFireShip_Discord_botRoute: typeof ProjectsFireShip_Discord_botRoute
-  ProjectsLevel_UPRoute: typeof ProjectsLevel_UPRoute
-  ProjectsMogger_AIRoute: typeof ProjectsMogger_AIRoute
-  ProjectsDashbordRoute: typeof ProjectsDashbordRoute
+  NotesPageRoute: typeof NotesPageRoute
+  ProjectsPidRoute: typeof ProjectsPidRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -105,32 +68,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/dashbord': {
-      id: '/projects/dashbord'
-      path: '/projects/dashbord'
-      fullPath: '/projects/dashbord'
-      preLoaderRoute: typeof ProjectsDashbordRouteImport
+    '/projects/$pid': {
+      id: '/projects/$pid'
+      path: '/projects/$pid'
+      fullPath: '/projects/$pid'
+      preLoaderRoute: typeof ProjectsPidRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/Mogger_AI': {
-      id: '/projects/Mogger_AI'
-      path: '/projects/Mogger_AI'
-      fullPath: '/projects/Mogger_AI'
-      preLoaderRoute: typeof ProjectsMogger_AIRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects/Level_UP': {
-      id: '/projects/Level_UP'
-      path: '/projects/Level_UP'
-      fullPath: '/projects/Level_UP'
-      preLoaderRoute: typeof ProjectsLevel_UPRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects/FireShip_Discord_bot': {
-      id: '/projects/FireShip_Discord_bot'
-      path: '/projects/FireShip_Discord_bot'
-      fullPath: '/projects/FireShip_Discord_bot'
-      preLoaderRoute: typeof ProjectsFireShip_Discord_botRouteImport
+    '/Notes/$page': {
+      id: '/Notes/$page'
+      path: '/Notes/$page'
+      fullPath: '/Notes/$page'
+      preLoaderRoute: typeof NotesPageRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -138,10 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProjectsFireShip_Discord_botRoute: ProjectsFireShip_Discord_botRoute,
-  ProjectsLevel_UPRoute: ProjectsLevel_UPRoute,
-  ProjectsMogger_AIRoute: ProjectsMogger_AIRoute,
-  ProjectsDashbordRoute: ProjectsDashbordRoute,
+  NotesPageRoute: NotesPageRoute,
+  ProjectsPidRoute: ProjectsPidRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

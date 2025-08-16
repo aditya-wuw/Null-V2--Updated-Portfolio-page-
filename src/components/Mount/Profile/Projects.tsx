@@ -83,11 +83,12 @@ const Projects = React.memo(() => {
                 </a>
               </div>
               <div
-                className="p-3 select-none cursor-pointer"
-                onClick={() => Navigate(item.Link)}
-              >
+                className="p-3 select-none cursor-pointer  "
+                onClick={() => Navigate(item.Link)} title={"view details "+item.title}
+              > 
                 <h1 className="text-xl font-bold">{item.title}</h1>
                 <h1 className="lg:text-sm text-xs">{item.description}</h1>
+                {!islist && !disabled && <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1, ease:"easeInOut"}}>{item.additional_dec}</motion.div>}
               </div>
               <div className="px-3 mt-4 flex gap-2 items-center justify-between mr-1 absolute w-[100%] bottom-3 z-10">
                 <div className="flex gap-2">

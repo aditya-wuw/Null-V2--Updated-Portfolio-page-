@@ -1,10 +1,20 @@
 import { assets } from '../Assets/assets'
 
-import { FaFigma, FaNodeJs, FaPython, FaReact } from 'react-icons/fa';
-import { RiNextjsFill, RiReactjsFill, RiVideoOnAiFill, RiTailwindCssFill } from 'react-icons/ri';
-import { SiAdobephotoshop, SiMongodb, SiSupabase, SiTypescript } from 'react-icons/si';
-import { PiFileSql } from 'react-icons/pi';
-import { GrGithub } from 'react-icons/gr';
+import { FaFigma, FaNodeJs, FaPython, FaReact } from 'react-icons/fa'
+import {
+  RiNextjsFill,
+  RiReactjsFill,
+  RiVideoOnAiFill,
+  RiTailwindCssFill,
+} from 'react-icons/ri'
+import {
+  SiAdobephotoshop,
+  SiMongodb,
+  SiSupabase,
+  SiTypescript,
+} from 'react-icons/si'
+import { PiFileSql } from 'react-icons/pi'
+import { GrGithub } from 'react-icons/gr'
 
 export const navLinks = [
   { id: 'skills', label: 'Skills' },
@@ -57,23 +67,59 @@ export const details = {
   ),
 }
 
-const icon_size:string = "w-7 h-7"
+const icon_size: string = 'w-7 h-7'
 export const skillsData = {
   title: 'Skills',
   items: [
-  { Name: "Next.js", Comp: <RiNextjsFill className={icon_size} />},
-  { Name: "React", Comp: <FaReact className={icon_size}/>, color:"group-hover:text-blue-300" },
-  { Name: "TypeScript", Comp: <SiTypescript className={icon_size} />,color:"group-hover:text-blue-600" },
-  { Name: "Tailwind CSS", Comp: <RiTailwindCssFill className={icon_size} />,color:"group-hover:text-blue-400"  },
-  { Name: "Supabase", Comp: <SiSupabase className={icon_size} />,color:"group-hover:text-green-700"  },
-  { Name: "Node.js", Comp: <FaNodeJs className={icon_size} />,color:"group-hover:text-green-500"  },
-  { Name: "SQL", Comp: <PiFileSql className={icon_size} /> ,color:"group-hover:text-sky-700" },
-  { Name: "MongoDB", Comp: <SiMongodb className={icon_size} />,color:"group-hover:text-green-700"  },
-  { Name: "Python", Comp: <FaPython className={icon_size} />,color:"group-hover:text-sky-700"  },
-  { Name: "Figma", Comp: <FaFigma className={icon_size} />},
-  { Name: "Adobe Photoshop", Comp: <SiAdobephotoshop className={icon_size} />,color:"group-hover:text-blue-800"  },
-  { Name: "Video Editing", Comp: <RiVideoOnAiFill className={icon_size} />},
-]
+    { Name: 'Next.js', Comp: <RiNextjsFill className={icon_size} /> },
+    {
+      Name: 'React',
+      Comp: <FaReact className={icon_size} />,
+      color: 'group-hover:text-blue-300',
+    },
+    {
+      Name: 'TypeScript',
+      Comp: <SiTypescript className={icon_size} />,
+      color: 'group-hover:text-blue-600',
+    },
+    {
+      Name: 'Tailwind CSS',
+      Comp: <RiTailwindCssFill className={icon_size} />,
+      color: 'group-hover:text-blue-400',
+    },
+    {
+      Name: 'Supabase',
+      Comp: <SiSupabase className={icon_size} />,
+      color: 'group-hover:text-green-700',
+    },
+    {
+      Name: 'Node.js',
+      Comp: <FaNodeJs className={icon_size} />,
+      color: 'group-hover:text-green-500',
+    },
+    {
+      Name: 'SQL',
+      Comp: <PiFileSql className={icon_size} />,
+      color: 'group-hover:text-sky-700',
+    },
+    {
+      Name: 'MongoDB',
+      Comp: <SiMongodb className={icon_size} />,
+      color: 'group-hover:text-green-700',
+    },
+    {
+      Name: 'Python',
+      Comp: <FaPython className={icon_size} />,
+      color: 'group-hover:text-sky-700',
+    },
+    { Name: 'Figma', Comp: <FaFigma className={icon_size} /> },
+    {
+      Name: 'Adobe Photoshop',
+      Comp: <SiAdobephotoshop className={icon_size} />,
+      color: 'group-hover:text-blue-800',
+    },
+    { Name: 'Video Editing', Comp: <RiVideoOnAiFill className={icon_size} /> },
+  ],
 }
 
 export const projectsData = {
@@ -84,6 +130,8 @@ export const projectsData = {
       Link: 'Mogger_AI',
       description:
         'AI-powered web app that generates personalized mock tests to help students prepare effectively for exams.',
+      additional_dec:"This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution",
+      dedicated_dec:"Mogger AI is an AI-powered web application designed to help students prepare effectively for exams by generating personalized mock tests. What started as a simple curiosity project turned into a real-world solution that adapts questions to user needs, making preparation more dynamic and engaging.",
       image: assets.screenshot2,
       tags: ['NEXT', 'Tailwind', <SiSupabase className="h-4 w-4" />, 'Live'],
       links: [
@@ -102,6 +150,8 @@ export const projectsData = {
       Link: 'FireShip_Discord_bot',
       description:
         'FireShip bot is a Discord bot designed to keep users up to date with the latest videos',
+      additional_dec:"This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution",
+      dedicated_dec:"Mogger AI is an AI-powered web application designed to help students prepare effectively for exams by generating personalized mock tests. What started as a simple curiosity project turned into a real-world solution that adapts questions to user needs, making preparation more dynamic and engaging.",
       image: assets.Fireship,
       tags: ['Node', 'Express', 'YTV3', 'Api'],
       links: [
@@ -117,9 +167,11 @@ export const projectsData = {
     },
     {
       title: 'HMS-dashbord',
-      Link: 'HMS-dashbord',
+      Link: 'HMS_dashbord',
       description:
         'Was tasked to build a Admin Hospital Management System Dashbord, no auth you can directly check the live demo',
+      additional_dec:"This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution",
+      dedicated_dec:"Mogger AI is an AI-powered web application designed to help students prepare effectively for exams by generating personalized mock tests. What started as a simple curiosity project turned into a real-world solution that adapts questions to user needs, making preparation more dynamic and engaging.",
       image: assets.screenshot5,
       tags: ['React', 'Api', 'Express', 'Live'],
       links: [
@@ -134,10 +186,12 @@ export const projectsData = {
       ],
     },
     {
-      title:'Persona Themed Portfolio',
+      title: 'Persona Themed Portfolio',
       Link: 'Portfolio',
       description:
         'As persona series is one of my most favorite games of all time and helped me get though a lot of things in life, I made this portfolio website themed on persona 3 reload',
+      additional_dec:"This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution",
+      dedicated_dec:"Mogger AI is an AI-powered web application designed to help students prepare effectively for exams by generating personalized mock tests. What started as a simple curiosity project turned into a real-world solution that adapts questions to user needs, making preparation more dynamic and engaging.",
       image: assets.screenshot1,
       tags: ['React', 'Express', 'Api', 'Live'],
       links: [
@@ -151,17 +205,24 @@ export const projectsData = {
   ],
 }
 
+
 export const Notes_blog = [
   {
-    tittle:"Today I laerned to be a brave man",
-    link:"brave_man",
-    date: "20th dec 2025",
+    title: 'Today I laerned to be a brave man',
+    link: 'brave_man',
+    banner:"sdasdasd",
+    description:"This portfolio website is themed after the Persona 3 Reload video game, blending creative design with personal storytelling. It reflects not only my skills in React and modern web development but also my appreciation for the Persona series, which has deeply influenced me. The site showcases projects, skills, and experience while immersing visitors in a unique, game-inspired interface.",
+    date: '20th dec 2025',
+    posted: true,
+    edited:false
   },
   {
-    tittle:"Today I laerned to be a dasdasdadas man",
-    link:"brave_mand2",
-    date: "20th dec 2025",
-  }
+    title: 'Today I laerned to be a dasdasdadas man',
+    link: 'brave_mand2',
+    banner:"sdasdas212121d",
+    description: "This portfolio website is themed after the Persona 3 Reload video game, blending creative design with personal storytelling. It reflects not only my skills in React and modern web development but also my appreciation for the Persona series, which has deeply influenced me. The site showcases projects, skills, and experience while immersing visitors in a unique, game-inspired interface.",
+    date: '20th dec 2025',
+    posted: true,
+    edited:true
+  },
 ]
-
-
