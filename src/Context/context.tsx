@@ -13,6 +13,7 @@ export const Context_Provider_wrap = React.memo(({children}:{children:React.Reac
     useEffect(()=>{
         setTheme(localStorage.getItem('theme') === 'Light'? true: false)
     },[])
+    
     const Values = {
         LightTheme,
         setTheme,

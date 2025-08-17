@@ -38,9 +38,12 @@ function RouteComponent() {
                 {item.title}
               </h1>
               <div className='h-55 max-[482px]:h-35 w-[100%] overflow-hidden rounded-2xl relative'>
-                <img src={item.image} width={2000} height={300} className='object-cover absolute'/>
+                <img src={item.image} width={2000} height={300} className='object-cover absolute 2xl:-top-45 xl:-top-15'/>
               </div>
-              <p className="text-md max-lg:text-sm">{item.description}</p>
+              <p className="text-md max-lg:text-sm">{item.dedicated_dec}</p>
+              <div className='flex gap-3 items-center justify-end mb-3'>
+                {item.links.map((item,i)=>( item.label !== "none" && <a key={i} className={`${typeof item.label === "string" && item.label !== "none" && "p-1 bg-blue-500 rounded-md"}`} href={item.url} >{item.label}</a>))}
+              </div>
             </motion.div>
           )}
         </div>

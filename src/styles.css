@@ -39,6 +39,9 @@ code {
 .Seek_help::-webkit-slider-thumb{
   transform: translateX(5px);
 }
+.blue-progress{
+  background: rgb(45, 153, 241);
+}
 @media (width > 2200px) {
   .shrinked {
     margin-left: 15%;

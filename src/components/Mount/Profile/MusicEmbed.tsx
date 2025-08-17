@@ -1,5 +1,5 @@
 import { createThemeContext } from '@/Context/context'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { FaBackward, FaForward, FaPause, FaPlay } from 'react-icons/fa'
 import { FaCompactDisc } from 'react-icons/fa6'
 import {
@@ -9,6 +9,7 @@ import {
 } from 'motion/react'
 import { HiMiniSpeakerWave } from 'react-icons/hi2'
 import { PiSpeakerXFill } from 'react-icons/pi'
+import { ToastContainer, toast } from 'react-toastify';
 
 const MusicEmbed = React.memo(() => {
   // do somthing later
@@ -23,6 +24,11 @@ const MusicEmbed = React.memo(() => {
   const [Timeline, setTimeline] = useState<number | undefined>(0)
   const [isDraging, setDraging] = useState(false)
   const title: string = 'Full moon Full life'
+  const [last,setlast] = useState(0)
+  
+  useEffect(()=>{
+    setplaying(false)
+  },[])
 
   useEffect(() => {
     const audio = Music_ref.current
@@ -150,10 +156,30 @@ const MusicEmbed = React.memo(() => {
   const player_control_style: string =
     'cursor-pointer hover:scale-130 scale-140 transiton duration-200 ease-in-out '
 
+    //vro add your favourite playlist here +impress recruiter with extra ordianry music taste :3 
+  const handle_next = useCallback(():void =>{
+    const now:number = Date.now();
+    setlast((prev)=>{
+      if(now - prev >= 500){
+        toast("feature will be updated soon ... \n enjoy that one music for now! :3",{style:{whiteSpace:"pre-line"},toastId:"vro"})
+        return now;
+      }
+      else{
+        return last;
+      }
+    })
+    
+  },[last])
   return (
     <div
       className={`w-full h-full select-none relative rounded-2xl  ${LightTheme ? 'bg-blue-500' : 'bg-blue-700'}`}
     >
+      <ToastContainer
+        position='top-center'
+        theme={LightTheme ? 'light': 'dark'}
+        progressClassName={"blue-progress"}
+        className={"mt-10"}
+      />
       <div className="w-full h-full p-2 overflow-hidden relative rounded-2xl">
         {/* dinamically change the background based on the cover picture of the music */}
         <img
@@ -225,13 +251,13 @@ const MusicEmbed = React.memo(() => {
               />
             </div>
             <ul className={`flex gap-6 text-white items-center w-fit`}>
-              <li className={`${player_control_style}`}>
+              <li className={`${player_control_style}`} onClick={handle_next}>
                 <FaBackward />
               </li>
               <li className={`${player_control_style}`} onClick={handlePlaying}>
                 {isplaying ? <FaPause /> : <FaPlay />}
               </li>
-              <li className={`${player_control_style}`}>
+              <li className={`${player_control_style}`} onClick={handle_next}>
                 <FaForward />
               </li>
             </ul>
