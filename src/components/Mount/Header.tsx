@@ -29,7 +29,6 @@ export default function Header() {
       <div className='mt-5 text-e'>
         <h1 className='text-sm'>{heroData.about_ln1} {heroData.about_ln2}</h1>
         <h1 className='text-sm mt-2'>{heroData.about_ln3} </h1>
-        <h1 className='text-sm mt-2'>{heroData.about_ln4}</h1>
       </div>
       <div className='absolute -top-10 right-5 w-20 h-25 slash rounded-full'/>
     </header>
