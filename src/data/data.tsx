@@ -351,23 +351,13 @@ export const projectsData = {
 
 export const Notes_blog = [
   {
-    title: 'Today I laerned to be a brave man',
-    link: 'brave_man',
-    banner: 'sdasdasd',
+    title: 'Creating a Minecraft Server for my Firends',
+    link: 'Minecraft_Server_blog',
+    banner: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
     description:
       'This portfolio website is themed after the Persona 3 Reload video game, blending creative design with personal storytelling. It reflects not only my skills in React and modern web development but also my appreciation for the Persona series, which has deeply influenced me. The site showcases projects, skills, and experience while immersing visitors in a unique, game-inspired interface.',
-    date: '20th dec 2025',
+    date: '19th Aug 2025',
     posted: true,
     edited: false,
-  },
-  {
-    title: 'Today I laerned to be a dasdasdadas man',
-    link: 'brave_mand2',
-    banner: 'sdasdas212121d',
-    description:
-      'This portfolio website is themed after the Persona 3 Reload video game, blending creative design with personal storytelling. It reflects not only my skills in React and modern web development but also my appreciation for the Persona series, which has deeply influenced me. The site showcases projects, skills, and experience while immersing visitors in a unique, game-inspired interface.',
-    date: '20th dec 2025',
-    posted: true,
-    edited: true,
-  },
+  }
 ]

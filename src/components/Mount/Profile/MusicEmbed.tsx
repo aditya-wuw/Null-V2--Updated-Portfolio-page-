@@ -26,10 +26,6 @@ const MusicEmbed = React.memo(() => {
   const title: string = 'Full moon Full life'
   const [last,setlast] = useState(0)
   
-  useEffect(()=>{
-    setplaying(false)
-  },[])
-
   useEffect(() => {
     const audio = Music_ref.current
     if (!audio) return

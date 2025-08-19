@@ -16,15 +16,15 @@ const Notes = React.memo(() => {
     >
       <div className='mx-2'>
         <h1 className="text-xl font-bold">Notes</h1>
-        <h1>My take and notes on development, events or creative ideas</h1>
+        <h1>My notes on development, events, experience or creative ideas</h1>
         <div className='mt-3 relative h-fit'>
           <div className='h-full absolute border-l top-4 left-2'/>
           {Notes_blog.map((item, i) => (
-            <div key={i} className='flex gap-2 mb-5' onClick={()=>hadnleclick(item.link)}>
+            <div key={i} className='flex gap-2 mb-5'>
               <div>
                 <TbPointFilled className='mt-1'/>
               </div>
-              <section className={` px-4 py-2 rounded-2xl cursor-pointer ${LightTheme ? 'hover:bg-blue-200' : 'hover:bg-blue-500'}`}>
+              <section className={` px-4 py-2 rounded-2xl cursor-pointer ${LightTheme ? 'hover:bg-blue-200' : 'hover:bg-blue-500'}`} onClick={()=>hadnleclick(item.link)}>
                 <h1>{item.title}</h1>
                 <h1>{item.date}</h1>
               </section>

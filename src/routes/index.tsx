@@ -72,6 +72,9 @@ function App() {
             <Notes />
           </Suspense>
         </motion.section>
+        {/* <section>
+          // add components section for the components I created make minor adjustments 
+        </section> */}
         <footer className="w-full">
           <Suspense fallback={<Loader />}>
             <Footer />

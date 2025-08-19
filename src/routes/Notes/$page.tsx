@@ -39,8 +39,7 @@ function RouteComponent() {
               </h1>
               <h1>{item.posted && !item.edited ? "posted on ": "edited " }{item.date}</h1>
               <div className='h-55 max-[482px]:h-35 w-[100%] overflow-hidden rounded-2xl relative'>
-                {item.banner}
-                {/* <img src={item.image} width={2000} height={300} className='object-cover absolute'/> */}
+                <img src={item.banner} width={2000} height={300} className='object-cover -top-50 absolute'/>
               </div>
               <p className="text-md max-lg:text-sm">{item.description}</p>
             </motion.div>
