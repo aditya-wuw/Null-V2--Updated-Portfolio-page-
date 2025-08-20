@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import {motion} from 'motion/react'
+import { motion } from 'motion/react'
 import Loader from '@/components/Loader'
 import Header from '@/components/Mount/Header'
 import Details from '@/components/Mount/Profile/Details'
@@ -12,6 +12,7 @@ const Cover = React.lazy(() => import('@/components/Mount/Profile/Cover'))
 const Projects = React.lazy(() => import('@/components/Mount/Profile/Projects'))
 const Notes = React.lazy(() => import('@/components/Mount/Profile/Notes'))
 const Footer = React.lazy(() => import('@/components/footer'))
+const Playlist = React.lazy(()=>import('@/components/Mount/Profile/Playlist'))
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -48,7 +49,7 @@ function App() {
           </div>
         </section>
         <section>
-          <div className='flex md:flex-row flex-col gap-2'>
+          <div className="flex md:flex-row flex-col gap-2">
             <div className="md:w-[40%] 2xl:h-34">
               <Skills />
             </div>
@@ -56,7 +57,11 @@ function App() {
               <MusicEmbed />
             </div>
           </div>
-          <div></div>
+        </section>
+        <section>
+          <Suspense fallback={<Loader/>}>
+              <Playlist/>
+          </Suspense>
         </section>
         <section>
           <Suspense>
@@ -64,17 +69,14 @@ function App() {
           </Suspense>
         </section>
         <motion.section
-          initial={{opacity:0, y:20}}
-          whileInView={{opacity:1,y:0}}
-          transition={{duration:0.5, ease:"circInOut"}}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'circInOut' }}
         >
           <Suspense>
             <Notes />
           </Suspense>
         </motion.section>
-        {/* <section>
-          // add components section for the components I created make minor adjustments 
-        </section> */}
         <footer className="w-full">
           <Suspense fallback={<Loader />}>
             <Footer />

@@ -131,7 +131,7 @@ export const projectsData = {
       description:
         'AI-powered web app that generates personalized mock tests to help students prepare effectively for exams.',
       additional_dec:
-        'This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution',
+        'send a prompt and see the magic as it creates a virtual mock test simulation for you',
       dedicated_dec: (
         <p>
           <b className="text-lg">Mogger AI</b> is an AI-powered web application
@@ -190,8 +190,7 @@ export const projectsData = {
       Link: 'FireShip_Discord_bot',
       description:
         'FireShip bot is a Discord bot designed to keep users up to date with the latest videos',
-      additional_dec:
-        'This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution',
+      additional_dec: "Fire ship is the goat and no one can deny that. So, I made this bot to get up to date with the channel as I'm busy gaming with my discord kittens ",
       dedicated_dec: (
         <p>
           <b className="text-lg">FireShipBot</b> is an automation tool built to
@@ -245,7 +244,7 @@ export const projectsData = {
       description:
         'Was tasked to build a Admin Hospital Management System Dashbord, no auth you can directly check the live demo',
       additional_dec:
-        'This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution',
+        'yeah average Dev ah project what else I can say',
       dedicated_dec: (
         <p>
           <b className="text-lg">HMS Dashboard</b> is a healthcare management
@@ -300,9 +299,9 @@ export const projectsData = {
       title: 'Persona Themed Portfolio',
       Link: 'Portfolio',
       description:
-        'As persona series is one of my most favorite games of all time and helped me get though a lot of things in life, I made this portfolio website themed on persona 3 reload',
+        'As persona series is one of my most favorite games of all time. So, I made this portfolio website themed on persona 3 reload',
       additional_dec:
-        'This Ai powered was part of my Imagination project when a simple curiocity turned into a real-world solution',
+        'when passion meets profession absolute chinema !',
       dedicated_dec: (
         <p>
           <b className="text-lg">Persona Portfolio</b> is a creative,
@@ -353,11 +352,41 @@ export const Notes_blog = [
   {
     title: 'Creating a Minecraft Server for my Firends',
     link: 'Minecraft_Server_blog',
-    banner: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
-    description:
-      'This portfolio website is themed after the Persona 3 Reload video game, blending creative design with personal storytelling. It reflects not only my skills in React and modern web development but also my appreciation for the Persona series, which has deeply influenced me. The site showcases projects, skills, and experience while immersing visitors in a unique, game-inspired interface.',
+    banner: assets.minecraft_,
+    description: (
+      <article className='flex flex-col gap-4'>
+        <p >
+          I was playing Minecraft with my friends, we enjoy building creative
+          things and let's just say our epic creations deserve better than a
+          random server crash, less simulation distance so that our farms takes
+          a holiday trip with Jet2holidays or my pal Steve's TNT obsession <i className='text-blue-500'>(please don't summon wither I beg you)</i>
+        </p>
+        <p>
+          So, I got an idea. What if I grab a Raspberry Pi and dive into building a self-hosted
+          Minecraft Java Edition server with some spicy flair - a custom Java API
+          for Google Drive backups, a web interface for my crew to control it,
+          and a downtime schedule to keep my Pi from turning into Crispy Pi ^O^
+        </p>
+        <p>
+          I'm planning to test all the code in a test VM enviornment and then setting up the Minecraft Java Edition server on my
+          Raspberry Pi 4 (4GB, because I'm broke T_T hire me bro like you won't regret having me around plaeaas). 
+          Getting the server running might be the easy part—install Java 21, grab the server JAR, and
+          tweak some settings to make it our own. But I'm
+          not stopping at basic. I'm cooking up a custom Java API to zip and
+          upload the world file to Google Drive using a cron job for nightly
+          backups
+        </p>
+        <p >
+          It's a work in progress, so I'll update what I achived though my site<a href="" className='ml-1 text-blue-600'>@nullfaceddev</a> or via my twitter/X account
+          <a href="https://x.com/GenzaGenza" target='_blank' className='ml-1 text-green-400'>@GenzGenza</a>
+          <h1 className='w-full flex justify-end italic mt-5'>
+            - nullfaceddev
+          </h1>
+        </p>
+      </article>
+    ),
     date: '19th Aug 2025',
     posted: true,
     edited: false,
-  }
+  },
 ]

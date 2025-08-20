@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsPidRouteImport } from './routes/projects/$pid'
 import { Route as NotesPageRouteImport } from './routes/Notes/$page'
 
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,36 +37,47 @@ const NotesPageRoute = NotesPageRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/Notes/$page': typeof NotesPageRoute
   '/projects/$pid': typeof ProjectsPidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/Notes/$page': typeof NotesPageRoute
   '/projects/$pid': typeof ProjectsPidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/Notes/$page': typeof NotesPageRoute
   '/projects/$pid': typeof ProjectsPidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/Notes/$page' | '/projects/$pid'
+  fullPaths: '/' | '/$' | '/Notes/$page' | '/projects/$pid'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/Notes/$page' | '/projects/$pid'
-  id: '__root__' | '/' | '/Notes/$page' | '/projects/$pid'
+  to: '/' | '/$' | '/Notes/$page' | '/projects/$pid'
+  id: '__root__' | '/' | '/$' | '/Notes/$page' | '/projects/$pid'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
   NotesPageRoute: typeof NotesPageRoute
   ProjectsPidRoute: typeof ProjectsPidRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
   NotesPageRoute: NotesPageRoute,
   ProjectsPidRoute: ProjectsPidRoute,
 }

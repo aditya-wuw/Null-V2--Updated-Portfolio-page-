@@ -15,10 +15,10 @@ body {
 .scroll_bar_::-webkit-scrollbar{
   width: 5px;
 }
-
 .scroll_bar_thumb::-webkit-scrollbar-thumb{
   width: 5px;
   background-color: rgb(134, 133, 133);
+  border-radius:5px;
 }
 code {
   font-family:

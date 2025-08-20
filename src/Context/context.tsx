@@ -9,6 +9,7 @@ export const Context_Provider_wrap = React.memo(({children}:{children:React.Reac
     const Rotate_control_ref = useRef<AnimationPlaybackControls | null>(null)
     const [isplaying, setplaying] = useState(false)
     const [InView,setisinView] = useState(true)
+    const [ShowPlaylist,setShowPlaylist] = useState(false)
     
     useEffect(()=>{
         setTheme(localStorage.getItem('theme') === 'Light'? true: false)
@@ -20,7 +21,9 @@ export const Context_Provider_wrap = React.memo(({children}:{children:React.Reac
         Music_ref,
         Rotate_control_ref,
         isplaying,
-        setplaying,InView,setisinView
+        setplaying,InView,setisinView,
+        ShowPlaylist,
+        setShowPlaylist
     }
     return <Context_Provider.Provider value={Values}>{children}</Context_Provider.Provider>
 })

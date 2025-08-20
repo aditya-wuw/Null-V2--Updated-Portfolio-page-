@@ -2,19 +2,18 @@ import { createThemeContext } from '@/Context/context'
 import React, { useCallback, useEffect, useState } from 'react'
 import { FaBackward, FaForward, FaPause, FaPlay } from 'react-icons/fa'
 import { FaCompactDisc } from 'react-icons/fa6'
-import {
-  animate,
-  motion,
-  useMotionValue
-} from 'motion/react'
+import { animate, motion, useMotionValue } from 'motion/react'
 import { HiMiniSpeakerWave } from 'react-icons/hi2'
 import { PiSpeakerXFill } from 'react-icons/pi'
-import { ToastContainer, toast } from 'react-toastify';
+import MusicData from '@/data/music.json'
+import { TiArrowLoop } from 'react-icons/ti'
+import { RiPlayListFill } from 'react-icons/ri'
 
 const MusicEmbed = React.memo(() => {
   // do somthing later
   // want to import a data object of the full play list where I'll want to store the background and sound track
-  const { LightTheme,Music_ref,Rotate_control_ref,isplaying,setplaying } = createThemeContext()
+  const { LightTheme, Music_ref, Rotate_control_ref, isplaying, setplaying,ShowPlaylist ,setShowPlaylist } =
+    createThemeContext()
   const [volume_Value, setVolumeValue] = useState(20)
   const [duration, setduration] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
@@ -23,17 +22,25 @@ const MusicEmbed = React.memo(() => {
   const [ShowVolume, setShowVolume] = useState(false)
   const [Timeline, setTimeline] = useState<number | undefined>(0)
   const [isDraging, setDraging] = useState(false)
-  const title: string = 'Full moon Full life'
-  const [last,setlast] = useState(0)
-  
+  const [last, setlast] = useState(0)
+  const [AutoPlayON, setAutoPlayON] = useState(false)
+  useEffect(() => {
+    const audio = new Audio(MusicData[last].music_src)
+    Music_ref.current = audio
+  }, [])
+
   useEffect(() => {
     const audio = Music_ref.current
     if (!audio) return
     const CurrentDurationUpdate = () => setduration(audio.duration)
     const CurrentTimeUpdate = () => setCurrentTime(audio.currentTime)
     const ended = () => {
-      Rotate_control_ref.current?.pause()
-      setplaying(false)
+      if (isplaying && AutoPlayON) {
+        handle_next('forward')
+      } else {
+        Rotate_control_ref.current?.pause()
+        setplaying(false)
+      }
     }
     audio.addEventListener('loadedmetadata', CurrentDurationUpdate)
     audio.addEventListener('timeupdate', CurrentTimeUpdate)
@@ -43,7 +50,7 @@ const MusicEmbed = React.memo(() => {
       audio.removeEventListener('timeupdate', CurrentTimeUpdate)
       audio.removeEventListener('ended', ended)
     }
-  }, [duration])
+  }, [currentTime, duration, last, isplaying])
 
   useEffect(() => {
     const timeline: number | undefined =
@@ -86,7 +93,7 @@ const MusicEmbed = React.memo(() => {
       const audio = Music_ref.current
       if (!audio) return
       if (!isplaying) {
-        audio.play().catch((e:Error)=>console.warn(e))
+        audio.play().catch((e: Error) => console.warn(e))
         Rotate_control_ref.current?.play()
         setplaying(true)
       } else if (isplaying) {
@@ -125,19 +132,23 @@ const MusicEmbed = React.memo(() => {
   function handleseek(Target: number) {
     const audio = Music_ref.current
     if (!audio) return
-    if(isplaying){
+    if (isplaying) {
       audio.pause()
       Rotate_control_ref.current?.pause()
-      audio.currentTime = duration * (Target / 100)
+      const newTime = duration * (Target / 100)
+      audio.currentTime = newTime
+      if (newTime >= duration - 0.2) {
+        setplaying(false)
+      }
+
       if (!isDraging) {
         setTimeout(() => {
-          audio.play().catch((e:Error)=>console.warn(e))
+          audio.play().catch((e: Error) => console.warn(e))
           Rotate_control_ref.current?.play()
           setplaying(true)
         }, 100)
       }
-    }
-    else{
+    } else {
       audio.currentTime = duration * (Target / 100)
     }
   }
@@ -152,36 +163,42 @@ const MusicEmbed = React.memo(() => {
   const player_control_style: string =
     'cursor-pointer hover:scale-130 scale-140 transiton duration-200 ease-in-out '
 
-    //vro add your favourite playlist here +impress recruiter with extra ordianry music taste :3 
-  const handle_next = useCallback(():void =>{
-    const now:number = Date.now();
-    setlast((prev)=>{
-      if(now - prev >= 500){
-        toast("feature will be updated soon ... \n enjoy that one music for now! :3",{style:{whiteSpace:"pre-line"},toastId:"vro"})
-        return now;
+  const handle_next = useCallback(
+    (action: string): void => {
+      if (!Music_ref.current) return
+      let newIndex = last
+      if (action === 'forward') {
+        newIndex = last === MusicData.length - 1 ? 0 : last + 1
+      } else if (action === 'back') {
+        newIndex = last === 0 ? MusicData.length - 1 : last - 1
       }
-      else{
-        return last;
+      Music_ref.current.pause()
+      Music_ref.current.src = ''
+      setlast(newIndex)
+      Music_ref.current.src = MusicData[newIndex].music_src
+
+      if (isplaying) {
+        Music_ref.current
+          .play()
+          .catch((e: Error) => console.warn('playback error:', e))
       }
-    })
-    
-  },[last])
+    },
+    [last, MusicData, isplaying],
+  )
+
   return (
     <div
       className={`w-full h-full select-none relative rounded-2xl  ${LightTheme ? 'bg-blue-500' : 'bg-blue-700'}`}
     >
-      <ToastContainer
-        position='top-center'
-        theme={LightTheme ? 'light': 'dark'}
-        progressClassName={"blue-progress"}
-        className={"mt-10"}
-      />
       <div className="w-full h-full p-2 overflow-hidden relative rounded-2xl">
-        {/* dinamically change the background based on the cover picture of the music */}
-        <img
-          src="/Images_Optimized/Cover/cover_art_411.webp"
+        <motion.img
+          src={MusicData[last].banner}
           alt="bg-media-player"
-          className="bg_cover object-cover absolute -top-20 right-0 mask-r-from-1% mask-t-from-40% z-1 min-[2250px]:mask-l-from-60%"
+          className="bg_cover object-cover absolute -top-20 right-0 mask-r-from-80% mask-t-from-40% z-1 min-[2250px]:mask-l-from-60%"
+          key={last}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, ease: 'easeInOut' }}
         />
         <motion.div
           className="text-white absolute z-3 -top-3 right-3"
@@ -215,17 +232,36 @@ const MusicEmbed = React.memo(() => {
               style={Volume_bar}
             />
           </section>
-          <audio ref={Music_ref} src="/Musics/Full Moon Full Life.mp3" />
           <section className="w-full flex justify-end mb-2">
-            <div className="text-end text-white">
-              <h1 className="w-73 overflow-hidden ">
-                {/* here if the string legth is hight than 30 animate the text to move from left to right  */}
-                <motion.span className="whitespace-nowrap xl:text-xl text-md">
-                  {title}
-                </motion.span>
+            <div className="text-end text-white backdrop-blur-xs rounded-2xl">
+              <h1 className="w-48 overflow-hidden">
+                <span className="whitespace-nowrap xl:text-lg text-md">
+                  {MusicData[last].Title}
+                </span>
               </h1>
               <h1 className="xl:text-md text-sm">
-                {FormateTime(currentTime)} / {FormateTime(duration)}
+                <section>
+                  <span
+                    onClick={() => setAutoPlayON(!AutoPlayON)}
+                    title="loop playlist or nah?"
+                    className="cursor-pointer"
+                  >
+                    <span className="absolute z-10 left-0 flex items-center  hover:scale-125 scale-100 trnsition-scale duration-300 ease-in-out">
+                      <TiArrowLoop
+                        className={`w-5 h-7.5 transition-rotate ease-in-out duration-300 ${AutoPlayON && 'rotate-y-180'}`}
+                      />
+                      <h1>{AutoPlayON ? '1' : '0'}</h1>
+                    </span>
+                  </span>
+                </section>
+                <section className="absolute -bottom-0.5 left-10 z-1">
+                  <span className="text-white cursor-pointer" onClick={()=>setShowPlaylist(!ShowPlaylist)}>
+                    <RiPlayListFill className="max-lg:scale-100 scale-120 hover:scale-150 transtion duration-300 ease-in-out" />
+                  </span>
+                </section>
+                <span>
+                  {FormateTime(currentTime)} / {FormateTime(duration)}
+                </span>
               </h1>
             </div>
           </section>
@@ -247,13 +283,19 @@ const MusicEmbed = React.memo(() => {
               />
             </div>
             <ul className={`flex gap-6 text-white items-center w-fit`}>
-              <li className={`${player_control_style}`} onClick={handle_next}>
+              <li
+                className={`${player_control_style}`}
+                onClick={() => handle_next('back')}
+              >
                 <FaBackward />
               </li>
               <li className={`${player_control_style}`} onClick={handlePlaying}>
                 {isplaying ? <FaPause /> : <FaPlay />}
               </li>
-              <li className={`${player_control_style}`} onClick={handle_next}>
+              <li
+                className={`${player_control_style}`}
+                onClick={() => handle_next('forward')}
+              >
                 <FaForward />
               </li>
             </ul>
