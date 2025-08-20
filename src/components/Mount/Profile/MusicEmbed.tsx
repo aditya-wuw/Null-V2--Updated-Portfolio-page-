@@ -1,5 +1,5 @@
 import { createThemeContext } from '@/Context/context'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBackward, FaForward, FaPause, FaPlay } from 'react-icons/fa'
 import { FaCompactDisc } from 'react-icons/fa6'
 import { animate, motion, useMotionValue } from 'motion/react'
@@ -12,8 +12,17 @@ import { RiPlayListFill } from 'react-icons/ri'
 const MusicEmbed = React.memo(() => {
   // do somthing later
   // want to import a data object of the full play list where I'll want to store the background and sound track
-  const { LightTheme, Music_ref, Rotate_control_ref, isplaying, setplaying,ShowPlaylist ,setShowPlaylist } =
-    createThemeContext()
+  const {
+    LightTheme,
+    Music_ref,
+    Rotate_control_ref,
+    isplaying,
+    setplaying,
+    ShowPlaylist,
+    setShowPlaylist,
+    last,
+    MusicPlayer,
+  } = createThemeContext()
   const [volume_Value, setVolumeValue] = useState(20)
   const [duration, setduration] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
@@ -22,11 +31,16 @@ const MusicEmbed = React.memo(() => {
   const [ShowVolume, setShowVolume] = useState(false)
   const [Timeline, setTimeline] = useState<number | undefined>(0)
   const [isDraging, setDraging] = useState(false)
-  const [last, setlast] = useState(0)
   const [AutoPlayON, setAutoPlayON] = useState(false)
   useEffect(() => {
     const audio = new Audio(MusicData[last].music_src)
     Music_ref.current = audio
+    return () => {
+      Music_ref.current.pause()
+      Music_ref.current.currentTime = 0
+      Music_ref.current = null,
+      setplaying(false);
+    }
   }, [])
 
   useEffect(() => {
@@ -36,7 +50,7 @@ const MusicEmbed = React.memo(() => {
     const CurrentTimeUpdate = () => setCurrentTime(audio.currentTime)
     const ended = () => {
       if (isplaying && AutoPlayON) {
-        handle_next('forward')
+        MusicPlayer.handle_next('forward')
       } else {
         Rotate_control_ref.current?.pause()
         setplaying(false)
@@ -87,24 +101,6 @@ const MusicEmbed = React.memo(() => {
     Rotate_control.pause()
     Rotate_control_ref.current = Rotate_control
   }, [Rotate_control_ref])
-
-  const handlePlaying = () => {
-    try {
-      const audio = Music_ref.current
-      if (!audio) return
-      if (!isplaying) {
-        audio.play().catch((e: Error) => console.warn(e))
-        Rotate_control_ref.current?.play()
-        setplaying(true)
-      } else if (isplaying) {
-        audio.pause()
-        Rotate_control_ref.current?.pause()
-        setplaying(false)
-      }
-    } catch (error) {
-      console.warn('playback error : ', error)
-    }
-  }
 
   function handleMute() {
     setmute((prevMute) => {
@@ -162,29 +158,6 @@ const MusicEmbed = React.memo(() => {
 
   const player_control_style: string =
     'cursor-pointer hover:scale-130 scale-140 transiton duration-200 ease-in-out '
-
-  const handle_next = useCallback(
-    (action: string): void => {
-      if (!Music_ref.current) return
-      let newIndex = last
-      if (action === 'forward') {
-        newIndex = last === MusicData.length - 1 ? 0 : last + 1
-      } else if (action === 'back') {
-        newIndex = last === 0 ? MusicData.length - 1 : last - 1
-      }
-      Music_ref.current.pause()
-      Music_ref.current.src = ''
-      setlast(newIndex)
-      Music_ref.current.src = MusicData[newIndex].music_src
-
-      if (isplaying) {
-        Music_ref.current
-          .play()
-          .catch((e: Error) => console.warn('playback error:', e))
-      }
-    },
-    [last, MusicData, isplaying],
-  )
 
   return (
     <div
@@ -255,7 +228,10 @@ const MusicEmbed = React.memo(() => {
                   </span>
                 </section>
                 <section className="absolute -bottom-0.5 left-10 z-1">
-                  <span className="text-white cursor-pointer" onClick={()=>setShowPlaylist(!ShowPlaylist)}>
+                  <span
+                    className="text-white cursor-pointer"
+                    onClick={() => setShowPlaylist(!ShowPlaylist)}
+                  >
                     <RiPlayListFill className="max-lg:scale-100 scale-120 hover:scale-150 transtion duration-300 ease-in-out" />
                   </span>
                 </section>
@@ -285,16 +261,19 @@ const MusicEmbed = React.memo(() => {
             <ul className={`flex gap-6 text-white items-center w-fit`}>
               <li
                 className={`${player_control_style}`}
-                onClick={() => handle_next('back')}
+                onClick={() => MusicPlayer.handle_next('back')}
               >
                 <FaBackward />
               </li>
-              <li className={`${player_control_style}`} onClick={handlePlaying}>
+              <li
+                className={`${player_control_style}`}
+                onClick={() => MusicPlayer.handlePlaying()}
+              >
                 {isplaying ? <FaPause /> : <FaPlay />}
               </li>
               <li
                 className={`${player_control_style}`}
-                onClick={() => handle_next('forward')}
+                onClick={() => MusicPlayer.handle_next('forward')}
               >
                 <FaForward />
               </li>

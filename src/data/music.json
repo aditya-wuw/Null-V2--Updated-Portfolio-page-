@@ -2,31 +2,37 @@
   {
     "Title":"Full Moon Full Life - P3R",
     "music_src": "/Musics/Full Moon Full Life - Persona 3 Reload.mp3",
-    "banner": "/Images_Optimized/Cover/cover_art_411.webp"
+    "banner": "/Images_Optimized/Cover/cover_art_411.webp",
+    "isplaying": false
   },
   {
     "Title":"Don't - P3R Episode Aigis",
     "music_src": "/Musics/Don't - Persona 3 Reload Episode Aigis.mp3",
-    "banner": "/Images_Optimized/Cover/just-did-a-quick-aigis-episode-wp.webp"
+    "banner": "/Images_Optimized/Cover/just-did-a-quick-aigis-episode-wp.webp",
+    "isplaying": false
   },
   {
     "Title":"Color Your Night - P3R",
     "music_src": "/Musics/Color Your Night - Persona 3 Reload.mp3",
-    "banner": "/Images_Optimized/Cover/cover_art_411.webp"
+    "banner": "/Images_Optimized/Cover/cover_art_411.webp",
+    "isplaying": false
   },
   {
     "Title":"It's Going Down Now - P3R",
     "music_src": "/Musics/It's Going Down Now - Persona 3 Reload.mp3",
-    "banner": "/Images_Optimized/Cover/cover_art_411.webp"
+    "banner": "/Images_Optimized/Cover/cover_art_411.webp",
+    "isplaying": false
   },
   {
     "Title":"Mass Destruction - P3R",
     "music_src": "/Musics/Mass Destruction - Persona 3 Reload.mp3",
-    "banner": "/Images_Optimized/Cover/cover_art_411.webp"
+    "banner": "/Images_Optimized/Cover/cover_art_411.webp",
+    "isplaying": false
   },
   {
     "Title":"Want To Be Close  - P3R",
     "music_src": "/Musics/Want To Be Close - Persona 3 Reload.mp3",
-    "banner": "/Images_Optimized/Cover/cover_art_411.webp"
+    "banner": "/Images_Optimized/Cover/cover_art_411.webp",
+    "isplaying": false
   }
 ]
