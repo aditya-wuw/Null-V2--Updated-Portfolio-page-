@@ -45,7 +45,7 @@ const Details = React.memo(() => {
           </section>
           <section className='flex gap-1 items-center'>
             <FaRegHandshake className='w-4 h-4 hover:scale-115 scale-100 cursor-pointer'/>
-            <h1>Employment -{details.employement}</h1>
+            <h1>Employment -{details.employment}</h1>
           </section>
           <section className='flex gap-1 items-center'>
             <SiFunimation className='w-4 h-4 hover:scale-115 scale-100 cursor-pointer'/>
