@@ -13,7 +13,6 @@ const MusicEmbed = React.memo(() => {
   // do somthing later
   // want to import a data object of the full play list where I'll want to store the background and sound track
   const {
-    LightTheme,
     Music_ref,
     Rotate_control_ref,
     isplaying,
@@ -38,8 +37,7 @@ const MusicEmbed = React.memo(() => {
     return () => {
       Music_ref.current.pause()
       Music_ref.current.currentTime = 0
-      Music_ref.current = null,
-      setplaying(false);
+      ;((Music_ref.current = null), setplaying(false))
     }
   }, [])
 
@@ -161,13 +159,13 @@ const MusicEmbed = React.memo(() => {
 
   return (
     <div
-      className={`w-full h-full select-none relative rounded-2xl  ${LightTheme ? 'bg-blue-500' : 'bg-blue-700'}`}
+      className={`w-full h-full select-none relative rounded-2xl  ${MusicData[last].bg === 'red' ? 'bg-red-500' : MusicData[last].bg === 'pink' ? 'bg-pink-500' : 'bg-blue-500'} transition duration-200 ease-in-out`}
     >
       <div className="w-full h-full p-2 overflow-hidden relative rounded-2xl">
         <motion.img
           src={MusicData[last].banner}
           alt="bg-media-player"
-          className="bg_cover object-cover absolute -top-20 right-0 mask-r-from-80% mask-t-from-40% z-1 min-[2250px]:mask-l-from-60%"
+          className="bg_cover object-cover absolute 2xl:-top-15 top-0 right-0 mask-r-from-50% z-1 mask-l-from-70%"
           key={last}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -206,17 +204,28 @@ const MusicEmbed = React.memo(() => {
             />
           </section>
           <section className="w-full flex justify-end mb-2">
-            <div className="text-end text-white backdrop-blur-xs rounded-2xl">
-              <h1 className="w-48 overflow-hidden">
-                <span className="whitespace-nowrap xl:text-lg text-md">
+            <div className="text-end text-white backdrop-blur-xs rounded-2xl xl:w-53 w-47">
+              <motion.div className="w-52 overflow-hidden">
+                <motion.h2
+                  className="whitespace-nowrap xl:text-lg text-md"
+                  initial={{ x: 0 }}
+                  animate={{ x:  isplaying ? -50: 0}}
+                  transition={{
+                    duration: 10,
+                    ease: 'easeOut',
+                    repeatType: 'loop',
+                    repeat: Infinity,
+                    repeatDelay: 1,
+                  }}
+                >
                   {MusicData[last].Title}
-                </span>
-              </h1>
+                </motion.h2>
+              </motion.div>
               <h1 className="xl:text-md text-sm">
                 <section>
                   <span
                     onClick={() => setAutoPlayON(!AutoPlayON)}
-                    title="loop playlist or nah?"
+                    title="Autoplay playlist or nah?"
                     className="cursor-pointer"
                   >
                     <span className="absolute z-10 left-0 flex items-center  hover:scale-125 scale-100 trnsition-scale duration-300 ease-in-out">

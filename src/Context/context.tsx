@@ -20,11 +20,7 @@ export const Context_Provider_wrap = React.memo(
     const [ShowPlaylist, setShowPlaylist] = useState(false)
     const [last, setlast] = useState(0)
     const [Track_rec, settrack] = useState(MusicData)
-
-    useEffect(() => {
-      console.log(Track_rec)
-    }, [Track_rec])
-
+    
     const MusicPlayer = {
       handlePlaying: () => {
         try {

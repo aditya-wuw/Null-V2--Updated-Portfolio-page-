@@ -12,7 +12,7 @@ const Cover = React.lazy(() => import('@/components/Mount/Profile/Cover'))
 const Projects = React.lazy(() => import('@/components/Mount/Profile/Projects'))
 const Notes = React.lazy(() => import('@/components/Mount/Profile/Notes'))
 const Footer = React.lazy(() => import('@/components/footer'))
-const Playlist = React.lazy(()=>import('@/components/Mount/Profile/Playlist'))
+const Playlist = React.lazy(() => import('@/components/Mount/Profile/Playlist'))
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -59,8 +59,8 @@ function App() {
           </div>
         </section>
         <section>
-          <Suspense fallback={<Loader/>}>
-              <Playlist/>
+          <Suspense fallback={<Loader />}>
+            <Playlist />
           </Suspense>
         </section>
         <section>
@@ -77,6 +77,11 @@ function App() {
             <Notes />
           </Suspense>
         </motion.section>
+        <section
+          className={`rounded-xl border-[0.5px] ${LightTheme ? 'bg-white text-black' : 'bg-black/70 text-white'} w-fit p-3`}
+        >
+          developed & designed by<span className="text-blue-400"> @Nullfaceddev</span>
+        </section>
         <footer className="w-full">
           <Suspense fallback={<Loader />}>
             <Footer />

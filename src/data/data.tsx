@@ -27,20 +27,12 @@ export const heroData = {
   name: 'Aditya Mandal',
   role: 'aka @NulledFacedDev',
   about_ln1:
-    'a Full-stack developer with 1+ year of hands on experience web apps and websites -',
+    'a Frontend Developer dabbling in Full-Stack with 1+ year of hands-on experience web apps and websites -',
   about_ln2:
-    "currently a college student who has been in development to build experiences not AI slop, I'm a self taught developer usually creating products using React, Next, TanStack and TailwindCSS",
+    "currently a college student. I'm a self taught developer usually creating products using React, Next, TanStack and TailwindCSS",
   about_ln3: (
     <>
-      Some of my proud projects includes{' '}
-      <a
-        href="https://mogger-mog-your-exams.vercel.app/"
-        target="_blank"
-        className="text-blue-500 hover:text-green-500 transition duration-200 ease-in-out"
-      >
-        @Mogger
-      </a>{' '}
-      and my on going Minecraft Raspberry pi server passion project
+      I'm constantly reaching out to people who share the same passion for building and learning as me so feel free to get in touch :)
     </>
   ),
 }
@@ -56,7 +48,7 @@ export const contactData = {
 }
 
 export const details = {
-  employement: 'Freelancer',
+  employment: 'Freelancer',
   favGame: 'I love persona',
   techstack: (
     <span className="flex gap-2 items-center">
@@ -146,9 +138,9 @@ export const projectsData = {
             </h1>
             <p className="text-lg">
               I use GPT to test and generate random questions very often but, it
-              became really redundent and not really efficent for me and my
+              became really redundant and not really efficient for me and my
               studies. so I got the idea from my own problem where I wanted a
-              vertual mock test enviornment that generates questions based on my
+              virtual mock test environment that generates questions based on my
               given instructions, that's how I got the idea of Mogger.AI
             </p>
           </section>
@@ -160,7 +152,7 @@ export const projectsData = {
             <p className="text-lg">
               It takes a user input as a Prompt and generates a set of questions
               for practice or testing learnings. Users can send PDF's of their
-              personalized notes to create questions based on their writen
+              personalized notes to create questions based on their written
               notes. In this way they will be able to test their skills and
               memorize faster and better with the help of AI, and GPT's we can
               create questions with unique seeds so that questions can be unique
@@ -190,7 +182,8 @@ export const projectsData = {
       Link: 'FireShip_Discord_bot',
       description:
         'FireShip bot is a Discord bot designed to keep users up to date with the latest videos',
-      additional_dec: "Fire ship is the goat and no one can deny that. So, I made this bot to get up to date with the channel as I'm busy gaming with my discord kittens ",
+      additional_dec:
+        "Fire ship is the goat and no one can deny that. So, I made this bot to get up to date with the channel as I'm busy gaming with my discord kittens ",
       dedicated_dec: (
         <p>
           <b className="text-lg">FireShipBot</b> is an automation tool built to
@@ -226,7 +219,7 @@ export const projectsData = {
         </p>
       ),
       image: assets.Fireship,
-      tags: ['Node', 'Express', 'YTV3', 'Api'],
+      tags: ['Node', 'Express', 'YTV3'],
       links: [
         {
           label: 'none',
@@ -239,12 +232,11 @@ export const projectsData = {
       ],
     },
     {
-      title: 'HMS-dashbord',
-      Link: 'HMS_dashbord',
+      title: 'HMS-dashboard',
+      Link: 'HMS_dashboard',
       description:
-        'Was tasked to build a Admin Hospital Management System Dashbord, no auth you can directly check the live demo',
-      additional_dec:
-        'yeah average Dev ah project what else I can say',
+        'Was tasked to build a Admin Hospital Management System Dashboard, no auth you can directly check the live demo',
+      additional_dec: 'yeah average Dev ah project what else I can say',
       dedicated_dec: (
         <p>
           <b className="text-lg">HMS Dashboard</b> is a healthcare management
@@ -283,7 +275,7 @@ export const projectsData = {
         </p>
       ),
       image: assets.screenshot5,
-      tags: ['React', 'Api', 'Express', 'Live'],
+      tags: ['React', 'Express', 'Live'],
       links: [
         {
           label: 'none',
@@ -291,7 +283,7 @@ export const projectsData = {
         },
         {
           label: <GrGithub className="w-6 h-6" />,
-          url: 'https://github.com/aditya-wuw/HMS-Dashbord',
+          url: 'https://github.com/aditya-wuw/HMS-Dashboard',
         },
       ],
     },
@@ -300,8 +292,7 @@ export const projectsData = {
       Link: 'Portfolio',
       description:
         'As persona series is one of my most favorite games of all time. So, I made this portfolio website themed on persona 3 reload',
-      additional_dec:
-        'when passion meets profession absolute chinema !',
+      additional_dec: 'when passion meets profession absolute chinema !',
       dedicated_dec: (
         <p>
           <b className="text-lg">Persona Portfolio</b> is a creative,
@@ -336,7 +327,7 @@ export const projectsData = {
         </p>
       ),
       image: assets.screenshot1,
-      tags: ['React', 'Express', 'Api', 'Live'],
+      tags: ['React', 'UI', 'Portfolio', 'Live'],
       links: [
         { label: 'View', url: 'https://portfolio-aditya-mandal.onrender.com/' },
         {
@@ -350,38 +341,47 @@ export const projectsData = {
 
 export const Notes_blog = [
   {
-    title: 'Creating a Minecraft Server for my Firends',
+    title: 'Creating a Minecraft Server for my Friends',
     link: 'Minecraft_Server_blog',
     banner: assets.minecraft_,
     description: (
-      <article className='flex flex-col gap-4'>
-        <p >
+      <article className="flex flex-col gap-4">
+        <p>
           I was playing Minecraft with my friends, we enjoy building creative
           things and let's just say our epic creations deserve better than a
           random server crash, less simulation distance so that our farms takes
-          a holiday trip with Jet2holidays or my pal Steve's TNT obsession <i className='text-blue-500'>(please don't summon wither I beg you)</i>
+          a holiday trip with Jet2holidays or my pal Steve's TNT obsession{' '}
+          <i className="text-blue-500">(please don't summon wither I beg you)</i>
         </p>
         <p>
-          So, I got an idea. What if I grab a Raspberry Pi and dive into building a self-hosted
-          Minecraft Java Edition server with some spicy flair - a custom Java API
-          for Google Drive backups, a web interface for my crew to control it,
-          and a downtime schedule to keep my Pi from turning into Crispy Pi ^O^
+          So, I got an idea. What if I grab a Raspberry Pi and dive into
+          building a self-hosted Minecraft Java Edition server with some spicy
+          flair - a custom Java API for Google Drive backups, a web interface
+          for my crew to control it, and a downtime schedule to keep my Pi from
+          turning into Crispy Pi ^O^
         </p>
         <p>
-          I'm planning to test all the code in a test VM enviornment and then setting up the Minecraft Java Edition server on my
-          Raspberry Pi 4 (4GB, because I'm broke T_T hire me bro like you won't regret having me around plaeaas). 
-          Getting the server running might be the easy part—install Java 21, grab the server JAR, and
-          tweak some settings to make it our own. But I'm
-          not stopping at basic. I'm cooking up a custom Java API to zip and
-          upload the world file to Google Drive using a cron job for nightly
-          backups
+          I'm planning to test all the code in a test VM environment and then
+          setting up the Minecraft Java Edition server on my Raspberry Pi 4
+          (4GB, because I'm broke T_T hire me bro like you won't regret having
+          me around plaeaas). Getting the server running might be the easy
+          part—install Java 21, grab the server JAR, and tweak some settings to
+          make it our own. But I'm not stopping at basic. I'm cooking up a
+          custom Java API to zip and upload the world file to Google Drive using
+          a cron job for nightly backups
         </p>
-        <p >
-          It's a work in progress, so I'll update what I achived though my site<a href="" className='ml-1 text-blue-600'>@nullfaceddev</a> or via my twitter/X account
-          <a href="https://x.com/GenzaGenza" target='_blank' className='ml-1 text-green-400'>@GenzGenza</a>
-          <h1 className='w-full flex justify-end italic mt-5'>
-            - nullfaceddev
-          </h1>
+        <p>
+          It's a work in progress, so I'll update what I achieved though my
+          site<a href="" className="ml-1 text-blue-600">@nullfaceddev</a> or via
+          my twitter/X account
+          <a
+            href="https://x.com/GenzaGenza"
+            target="_blank"
+            className="ml-1 text-green-400"
+          >
+            @GenzGenza
+          </a>
+          <h1 className="w-full flex justify-end italic mt-5">- nullfaceddev</h1>
         </p>
       </article>
     ),

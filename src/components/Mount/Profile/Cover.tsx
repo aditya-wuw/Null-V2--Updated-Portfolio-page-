@@ -11,7 +11,7 @@ const Cover = React.memo(() => {
   }, [isInView])
   return (
     <motion.a
-      href="https://wall.alphacoders.com/big.php?i=1364253"
+      href="https://www.youtube.com/watch?v=60wWZH49MzE"
       target="_black"
       ref={AMinView}
       initial={{ opacity: 0 }}
