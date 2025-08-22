@@ -23,11 +23,11 @@ const Playlist = () => {
       }}
       transition={{ duration: 0.4, ease: 'circInOut' }}
     >   
-        <div className='flex justify-between'>
-            <h1 className="xl:text-2xl text-xl font-bold mx-5 mt-2">Music Player Hmm... ? </h1>
-            <h1 className="text-2xl font-bold mx-5 mt-2"onClick={()=>setShowPlaylist(!ShowPlaylist)}><RiArrowUpWideFill className={`${ShowPlaylist ? 'rotate-y-180': 'rotate-y-0'} transition duration-300 ease-in-out cursor-pointer ${LightTheme ? "hover:bg-black/50":"hover:bg-white/30"} p-1 rounded-xl`}/></h1>
+        <div className='flex justify-between mx-5'>
+            <h1 className="xl:text-2xl text-lg font-bold mt-2">Music Player Hmm...?</h1>
+            <h1 className="text-2xl font-bold mt-2"onClick={()=>setShowPlaylist(!ShowPlaylist)}><RiArrowUpWideFill className={`${ShowPlaylist ? 'rotate-y-180': 'rotate-y-0'} transition duration-300 ease-in-out cursor-pointer ${LightTheme ? "hover:bg-black/50":"hover:bg-white/30"} p-1 rounded-xl`}/></h1>
         </div>
-      <div className="m-2 xl:p-5 p-2 overflow-y-auto max-h-[40vh] scroll_bar_ scroll_bar_thumb group cursor-pointer">
+      <div className="m-0 xl:p-4 p-2 overflow-y-auto max-h-[40vh] scroll_bar_ scroll_bar_thumb group cursor-pointer">
         {Music.map((track, i: number) => (
           <motion.section
             className={`flex gap-3 items-center group rounded-xl ${LightTheme ? 'hover:bg-gray-800/20' : 'hover:bg-white/20'} py-3 xl:px-5 px-1 justify-between`}

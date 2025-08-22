@@ -1,14 +1,20 @@
 import { createThemeContext } from '@/Context/context'
 import { motion, useInView } from 'motion/react'
-import React, { useEffect, useRef } from 'react'
-
+import React, { useEffect, useRef, useState } from 'react'
+import video from "/Video_bg/Persona -3-Reload Menu-bg.mp4"
 const Cover = React.memo(() => {
   const { LightTheme, setisinView } = createThemeContext()
   const AMinView = useRef<HTMLAnchorElement | null>(null)
+  const videoref = useRef<HTMLVideoElement>(null)
+  const [loaded,setisloaded] = useState<boolean| null>(false)
   const isInView = useInView(AMinView)
   useEffect(() => {
       setisinView(isInView)
-  }, [isInView])
+      if(!videoref.current) return
+      if(videoref.current.readyState >= 1){
+        setisloaded(true)
+      }
+  }, [isInView,videoref])
   return (
     <motion.a
       href="https://www.youtube.com/watch?v=60wWZH49MzE"
@@ -25,13 +31,15 @@ const Cover = React.memo(() => {
           AM
         </h1>
         <video
-          src="/Video_bg/Persona -3-Reload Menu-bg.mp4"
-          className={` absolute lg:-top-23`}
+          src={video}
+          ref={videoref}
+          className={` absolute lg:-top-23 ${loaded ? 'opacity-100':'opacity-0'} transition-opacity ease-in-out duration-200`}
           width={2250}
           height={1200}
           muted
           autoPlay
           loop
+          playsInline
         />
       </div>
     </motion.a>

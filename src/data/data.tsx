@@ -346,21 +346,21 @@ export const Notes_blog = [
     banner: assets.minecraft_,
     description: (
       <article className="flex flex-col gap-4">
-        <p>
+        <article>
           I was playing Minecraft with my friends, we enjoy building creative
           things and let's just say our epic creations deserve better than a
           random server crash, less simulation distance so that our farms takes
           a holiday trip with Jet2holidays or my pal Steve's TNT obsession{' '}
           <i className="text-blue-500">(please don't summon wither I beg you)</i>
-        </p>
-        <p>
+        </article>
+        <article>
           So, I got an idea. What if I grab a Raspberry Pi and dive into
           building a self-hosted Minecraft Java Edition server with some spicy
           flair - a custom Java API for Google Drive backups, a web interface
           for my crew to control it, and a downtime schedule to keep my Pi from
           turning into Crispy Pi ^O^
-        </p>
-        <p>
+        </article>
+        <article>
           I'm planning to test all the code in a test VM environment and then
           setting up the Minecraft Java Edition server on my Raspberry Pi 4
           (4GB, because I'm broke T_T hire me bro like you won't regret having
@@ -369,8 +369,8 @@ export const Notes_blog = [
           make it our own. But I'm not stopping at basic. I'm cooking up a
           custom Java API to zip and upload the world file to Google Drive using
           a cron job for nightly backups
-        </p>
-        <p>
+        </article>
+        <article>
           It's a work in progress, so I'll update what I achieved though my
           site<a href="" className="ml-1 text-blue-600">@nullfaceddev</a> or via
           my twitter/X account
@@ -382,7 +382,7 @@ export const Notes_blog = [
             @GenzGenza
           </a>
           <h1 className="w-full flex justify-end italic mt-5">- nullfaceddev</h1>
-        </p>
+        </article>
       </article>
     ),
     date: '19th Aug 2025',

@@ -31,6 +31,8 @@ const MusicEmbed = React.memo(() => {
   const [Timeline, setTimeline] = useState<number | undefined>(0)
   const [isDraging, setDraging] = useState(false)
   const [AutoPlayON, setAutoPlayON] = useState(false)
+  const [isBGLoadedHUH, setisBGLoadedHUH] = useState(false)
+
   useEffect(() => {
     const audio = new Audio(MusicData[last].music_src)
     Music_ref.current = audio
@@ -40,7 +42,9 @@ const MusicEmbed = React.memo(() => {
       ;((Music_ref.current = null), setplaying(false))
     }
   }, [])
-
+  useEffect(() => {
+  setisBGLoadedHUH(false)
+}, [last])
   useEffect(() => {
     const audio = Music_ref.current
     if (!audio) return
@@ -163,13 +167,14 @@ const MusicEmbed = React.memo(() => {
     >
       <div className="w-full h-full p-2 overflow-hidden relative rounded-2xl">
         <motion.img
+          onLoad={()=>{setTimeout(()=>{setisBGLoadedHUH(true)},30);}}
           src={MusicData[last].banner}
           alt="bg-media-player"
-          className="bg_cover object-cover absolute 2xl:-top-15 top-0 right-0 mask-r-from-50% z-1 mask-l-from-70%"
+          className={`bg_cover object-cover absolute 2xl:-top-15 top-0 right-0 mask-r-from-50% z-1 mask-l-from-70%`}
           key={last}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
+          animate={{ opacity: isBGLoadedHUH ? 1 : 0}}
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
         />
         <motion.div
           className="text-white absolute z-3 -top-3 right-3"
@@ -207,9 +212,10 @@ const MusicEmbed = React.memo(() => {
             <div className="text-end text-white backdrop-blur-xs rounded-2xl xl:w-53 w-47">
               <motion.div className="w-52 overflow-hidden">
                 <motion.h2
-                  className="whitespace-nowrap xl:text-lg text-md"
-                  initial={{ x: 0 }}
-                  animate={{ x:  isplaying ? -50: 0}}
+                  className="whitespace-nowrap xl:text-lg text-md -translate-x-5"
+                  key={MusicData[last].Title}
+                  initial={{ x: 50 }}
+                  animate={{ x:-50}}
                   transition={{
                     duration: 10,
                     ease: 'easeOut',
@@ -267,7 +273,7 @@ const MusicEmbed = React.memo(() => {
                 style={seek_bar}
               />
             </div>
-            <ul className={`flex gap-6 text-white items-center w-fit`}>
+            <ul className={`flex gap-6 text-white items-center w-fit max-md:scale-90`}>
               <li
                 className={`${player_control_style}`}
                 onClick={() => MusicPlayer.handle_next('back')}
