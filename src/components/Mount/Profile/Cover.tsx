@@ -26,7 +26,7 @@ const Cover = React.memo(() => {
     >
       <div className="relative">
         <h1
-          className={`absolute z-2 italic top-7 right-0 text-9xl max-lg:text-8xl max-lg:top-15 max-sm:text-6xl max-sm:top-12 font-extrabold ${LightTheme ? 'text-blue-400' : 'text-black'}`}
+          className={`absolute z-2 italic top-7 right-0 text-9xl max-lg:text-8xl max-lg:top-15 max-sm:text-7xl max-sm:top-10 font-extrabold ${LightTheme ? 'text-blue-400' : 'text-black'}`}
         >
           AM
         </h1>
