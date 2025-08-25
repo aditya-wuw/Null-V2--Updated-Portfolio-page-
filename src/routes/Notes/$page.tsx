@@ -26,6 +26,7 @@ function RouteComponent() {
         </button>
       </Link>
       {Notes_blog.map((item, i) => (
+        item.link === page &&
         <div key={i}>
           {item.link === page && (
             <motion.div
@@ -39,9 +40,9 @@ function RouteComponent() {
                 {item.title}
               </h1>
               <h1>{item.posted && !item.edited ? "posted on ": "edited " }{item.date}</h1>
-              <div className='h-55 max-[482px]:h-35 w-[100%] overflow-hidden rounded-2xl relative'>
+              {item.banner != '' && <div className='h-55 max-[482px]:h-35 w-[100%] overflow-hidden rounded-2xl relative'>
                 <img onLoad={()=>setloading(true)} src={item.banner} width={2000} height={300} className='object-cover 2xl:-top-30 xl:-top-15 absolute'/>
-              </div>
+              </div>}
               <section className="text-md max-lg:text-sm tracking-wide">{item.description}</section>
             </motion.div>
           )}

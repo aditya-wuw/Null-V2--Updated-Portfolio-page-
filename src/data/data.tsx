@@ -32,7 +32,8 @@ export const heroData = {
     "currently a college student. I'm a self taught developer usually creating products using React, Next, TanStack and TailwindCSS",
   about_ln3: (
     <>
-      I'm constantly reaching out to people who share the same passion for building and learning as me so feel free to get in touch :)
+      I'm constantly reaching out to people who share the same passion for
+      building and learning as me so feel free to get in touch :)
     </>
   ),
 }
@@ -341,6 +342,54 @@ export const projectsData = {
 
 export const Notes_blog = [
   {
+    title: 'My perspective of using AI',
+    link: 'about_ai',
+    banner: assets.vro,
+    description: (
+      <article className="flex flex-col gap-4">
+        <article>
+          I've been on the "AI hype train" for a while now, and it's a
+          thrilling, slightly chaotic ride. While everyone's talking about the
+          next big model, I'm more interested in the practical, everyday
+          applications—the ones that simplify my life and amplify my work. It's
+          like having a hyper-efficient intern who never sleeps, complains, or
+          steals my snacks.
+        </article>
+        <article>
+          I got an idea to build a personal AI assistant. Not just a chatbot,
+          but a custom tool to handle my mundane tasks. Think of it as a digital
+          butler that organizes my schedule, drafts emails based on my
+          conversational style, and even helps me ideate on new projects. The
+          goal is to offload the repetitive, low-impact tasks so I can focus on
+          the truly creative and strategic work.
+        </article>
+        <article>
+          But the problem is, if AI will do all this work, I will become lazy.
+          Even though it helps with productivity, it also gives you creative
+          burnout and less creative freedom. I believe what makes something
+          unique is the uneven and random ideas from humanity, which make
+          something truly remarkable. AI can only visually recreate the work,
+          but it can't portray the emotional burden or the late-night thinking
+          that went into a specific change, which is what makes it truly
+          remarkable.
+        </article>
+        <article>
+          if you find this article cool then follow me on twitter
+          <a
+            href="https://x.com/GenzaGenza"
+            target="_blank"
+            className="ml-1 text-green-400"
+          >
+            @GenzaGenza
+          </a>
+        </article>
+      </article>
+    ),
+    date: '25th Aug 2025',
+    posted: true,
+    edited: false,
+  },
+  {
     title: 'Creating a Minecraft Server for my Friends',
     link: 'Minecraft_Server_blog',
     banner: assets.minecraft_,
@@ -351,7 +400,9 @@ export const Notes_blog = [
           things and let's just say our epic creations deserve better than a
           random server crash, less simulation distance so that our farms takes
           a holiday trip with Jet2holidays or my pal Steve's TNT obsession{' '}
-          <i className="text-blue-500">(please don't summon wither I beg you)</i>
+          <i className="text-blue-500">
+            (please don't summon wither I beg you)
+          </i>
         </article>
         <article>
           So, I got an idea. What if I grab a Raspberry Pi and dive into
@@ -371,9 +422,11 @@ export const Notes_blog = [
           a cron job for nightly backups
         </article>
         <article>
-          It's a work in progress, so I'll update what I achieved though my
-          site<a href="" className="ml-1 text-blue-600">@nullfaceddev</a> or via
-          my twitter/X account
+          It's a work in progress, so I'll update what I achieved though my site
+          <a href="" className="ml-1 text-blue-600">
+            @nullfaceddev
+          </a>{' '}
+          or via my twitter/X account
           <a
             href="https://x.com/GenzaGenza"
             target="_blank"
@@ -381,7 +434,6 @@ export const Notes_blog = [
           >
             @GenzGenza
           </a>
-          <h1 className="w-full flex justify-end italic mt-5">- nullfaceddev</h1>
         </article>
       </article>
     ),
