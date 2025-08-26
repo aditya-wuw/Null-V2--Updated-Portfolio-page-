@@ -45,7 +45,7 @@ const Projects = React.memo(() => {
       >
         <div>
           <div className="flex justify-between w-full mx-1 px-2">
-            <motion.h1 className="text-xl font-bold" key={Number(islist)} initial={{opacity:0}} animate={{opacity:1}}>{islist ? 'Projects' : 'Yapper'}</motion.h1>
+            <h1 className="text-xl font-bold">Projects</h1>
             <button
               className={`${disabled && 'hidden'} scale-115 cursor-pointer hover:scale-120 transition-scale duration-200 ease-in-out`}
               onClick={handleClick}

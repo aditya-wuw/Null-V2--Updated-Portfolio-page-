@@ -45,6 +45,7 @@ const MusicEmbed = React.memo(() => {
   useEffect(() => {
   setisBGLoadedHUH(false)
 }, [last])
+
   useEffect(() => {
     const audio = Music_ref.current
     if (!audio) return
