@@ -50,7 +50,11 @@ export const contactData = {
 
 export const details = {
   employment: 'Freelancer',
-  favGame: 'I love persona',
+ 
+  certification: [ {
+    label: "WebD",
+    path: '/Web Development.pdf'
+  }],
   techstack: (
     <span className="flex gap-2 items-center">
       <RiNextjsFill className="hover:scale-115 scale-100 cursor-pointer" />
@@ -284,12 +288,12 @@ export const projectsData = {
         },
         {
           label: <GrGithub className="w-6 h-6" />,
-          url: 'https://github.com/aditya-wuw/HMS-Dashboard',
+          url: 'https://github.com/aditya-wuw/HMS-Dashbord',
         },
       ],
     },
     {
-      title: 'Persona Themed Portfolio',
+      title: 'Themed Portfolio',
       Link: 'Portfolio',
       description:
         'As persona series is one of my most favorite games of all time. So, I made this portfolio website themed on persona 3 reload',

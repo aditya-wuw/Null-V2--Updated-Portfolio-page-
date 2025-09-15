@@ -171,7 +171,8 @@ const MusicEmbed = React.memo(() => {
           onLoad={()=>{setTimeout(()=>{setisBGLoadedHUH(true)},30);}}
           src={MusicData[last].banner}
           alt="bg-media-player"
-          className={`bg_cover object-cover absolute 2xl:-top-15 top-0 right-0 mask-r-from-50% z-1 mask-l-from-70%`}
+          draggable="false"
+          className={`bg_cover object-cover select-none absolute 2xl:-top-15 top-0 right-0 mask-r-from-50% z-1 mask-l-from-70%`}
           key={last}
           initial={{ opacity: 0 }}
           animate={{ opacity: isBGLoadedHUH ? 1 : 0}}
