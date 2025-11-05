@@ -1,5 +1,5 @@
 import { createThemeContext } from '@/Context/context'
-import { Notes_blog } from '@/data/data'
+import { Notes_blog } from '@/data/blogdata'
 import { useNavigate } from '@tanstack/react-router';
 import React from 'react';
 import { TbPointFilled } from "react-icons/tb";
@@ -17,8 +17,9 @@ const Notes = React.memo(() => {
       <div className='mx-2'>
         <h1 className="text-xl font-bold">Notes</h1>
         <h1>My notes on development, events, experience or creative ideas</h1>
-        <div className='mt-3 relative h-fit'>
-          <div className='h-full absolute border-l top-4 left-2'/>
+        <div className='mt-3 relative '>
+          <div className='DALINE h-[95%] absolute border-l top-5 left-2'/>
+          <div className='md:h-43 h-50 overflow-y-auto scroll_bar_thumb scroll_bar_'>
           {Notes_blog.map((item, i) => (
             <div key={i} className='flex gap-2 mb-5'>
               <div>
@@ -30,6 +31,7 @@ const Notes = React.memo(() => {
               </section>
             </div>
           ))}
+          </div>
         </div>
       </div>
       <TbPointFilled className='relative left-[8.3px] bottom-0'/>

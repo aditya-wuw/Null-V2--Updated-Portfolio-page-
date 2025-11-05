@@ -11,8 +11,11 @@ import {
   SiAdobephotoshop,
   SiMongodb,
   SiPaloaltonetworks,
+  SiRadixui,
+  SiReacthookform,
   SiSupabase,
   SiTypescript,
+  SiZod,
 } from 'react-icons/si'
 import { PiFileSql, PiProjectorScreenFill } from 'react-icons/pi'
 import { GrGithub } from 'react-icons/gr'
@@ -27,15 +30,11 @@ export const heroData = {
   name: 'Aditya Mandal',
   role: 'aka @NulledFacedDev',
   about_ln1:
-    'a Frontend Developer dabbling in Full-Stack with 1+ year of hands-on experience web apps and websites -',
+    'Developer dabbling in Full-Stack with 1+ year of hands-on experience in web apps and website development -',
   about_ln2:
-    "currently a college student. I'm a self taught developer usually creating products using React, Next, TanStack and TailwindCSS",
-  about_ln3: (
-    <>
-      I'm constantly reaching out to people who share the same passion for
-      building and learning as me so feel free to get in touch :)
-    </>
-  ),
+    "currently a college student. I'm a self taught developer usually creating apps or sites using React, Next, TanStack, Supabase and TailwindCSS",
+  about_ln3:
+    "I find Japanese culture really cool, and I've been learning the language in my free time. And yes, I do play Persona games a lot — in case that wasn’t obvious! xD",
 }
 
 export const contactData = {
@@ -50,11 +49,13 @@ export const contactData = {
 
 export const details = {
   employment: 'Freelancer',
- 
-  certification: [ {
-    label: "WebD",
-    path: '/Web Development.pdf'
-  }],
+
+  certification: [
+    {
+      label: 'Web Dev',
+      path: '/Web Development.pdf',
+    },
+  ],
   techstack: (
     <span className="flex gap-2 items-center">
       <RiNextjsFill className="hover:scale-115 scale-100 cursor-pointer" />
@@ -88,6 +89,21 @@ export const skillsData = {
       Name: 'Supabase',
       Comp: <SiSupabase className={icon_size} />,
       color: 'group-hover:text-green-700',
+    },
+    {
+      Name: 'Zod',
+      Comp: <SiZod className={icon_size} />,
+      color: 'group-hover:text-blue-800',
+    },
+    {
+      Name: 'React Form Hooks',
+      Comp: <SiReacthookform className={icon_size} />,
+      color: 'group-hover:text-red-500',
+    },
+    {
+      Name: 'Radix UI',
+      Comp: <SiRadixui className={icon_size} />,
+      color: 'group-hover:text-black-500',
     },
     {
       Name: 'Node.js',
@@ -240,7 +256,7 @@ export const projectsData = {
       title: 'HMS-dashboard',
       Link: 'HMS_dashboard',
       description:
-        'Was tasked to build a Admin Hospital Management System Dashboard, no auth you can directly check the live demo',
+        'Was tasked to build a Admin Hospital Management System Dashboard, it is a full stack demo',
       additional_dec: 'yeah average Dev ah project what else I can say',
       dedicated_dec: (
         <p>
@@ -280,11 +296,11 @@ export const projectsData = {
         </p>
       ),
       image: assets.screenshot5,
-      tags: ['React', 'Express', 'Live'],
+      tags: ['React', 'Express', 'Live', 'MongoDB'],
       links: [
         {
-          label: 'none',
-          url: 'none',
+          label: 'View',
+          url: 'https://hms-dashbord-1.onrender.com/',
         },
         {
           label: <GrGithub className="w-6 h-6" />,
@@ -344,105 +360,8 @@ export const projectsData = {
   ],
 }
 
-export const Notes_blog = [
-  {
-    title: 'My perspective of using AI',
-    link: 'about_ai',
-    banner: assets.vro,
-    description: (
-      <article className="flex flex-col gap-4">
-        <article>
-          I've been on the "AI hype train" for a while now, and it's a
-          thrilling, slightly chaotic ride. While everyone's talking about the
-          next big model, I'm more interested in the practical, everyday
-          applications—the ones that simplify my life and amplify my work. It's
-          like having a hyper-efficient intern who never sleeps, complains, or
-          steals my snacks.
-        </article>
-        <article>
-          I got an idea to build a personal AI assistant. Not just a chatbot,
-          but a custom tool to handle my mundane tasks. Think of it as a digital
-          butler that organizes my schedule, drafts emails based on my
-          conversational style, and even helps me ideate on new projects. The
-          goal is to offload the repetitive, low-impact tasks so I can focus on
-          the truly creative and strategic work.
-        </article>
-        <article>
-          But the problem is, if AI will do all this work, I will become lazy.
-          Even though it helps with productivity, it also gives you creative
-          burnout and less creative freedom. I believe what makes something
-          unique is the uneven and random ideas from humanity, which make
-          something truly remarkable. AI can only visually recreate the work,
-          but it can't portray the emotional burden or the late-night thinking
-          that went into a specific change, which is what makes it truly
-          remarkable.
-        </article>
-        <article>
-          if you find this article cool then follow me on twitter
-          <a
-            href="https://x.com/GenzaGenza"
-            target="_blank"
-            className="ml-1 text-green-400"
-          >
-            @GenzaGenza
-          </a>
-        </article>
-      </article>
-    ),
-    date: '25th Aug 2025',
-    posted: true,
-    edited: false,
-  },
-  {
-    title: 'Creating a Minecraft Server for my Friends',
-    link: 'Minecraft_Server_blog',
-    banner: assets.minecraft_,
-    description: (
-      <article className="flex flex-col gap-4">
-        <article>
-          I was playing Minecraft with my friends, we enjoy building creative
-          things and let's just say our epic creations deserve better than a
-          random server crash, less simulation distance so that our farms takes
-          a holiday trip with Jet2holidays or my pal Steve's TNT obsession{' '}
-          <i className="text-blue-500">
-            (please don't summon wither I beg you)
-          </i>
-        </article>
-        <article>
-          So, I got an idea. What if I grab a Raspberry Pi and dive into
-          building a self-hosted Minecraft Java Edition server with some spicy
-          flair - a custom Java API for Google Drive backups, a web interface
-          for my crew to control it, and a downtime schedule to keep my Pi from
-          turning into Crispy Pi ^O^
-        </article>
-        <article>
-          I'm planning to test all the code in a test VM environment and then
-          setting up the Minecraft Java Edition server on my Raspberry Pi 4
-          (4GB, because I'm broke T_T hire me bro like you won't regret having
-          me around plaeaas). Getting the server running might be the easy
-          part—install Java 21, grab the server JAR, and tweak some settings to
-          make it our own. But I'm not stopping at basic. I'm cooking up a
-          custom Java API to zip and upload the world file to Google Drive using
-          a cron job for nightly backups
-        </article>
-        <article>
-          It's a work in progress, so I'll update what I achieved though my site
-          <a href="" className="ml-1 text-blue-600">
-            @nullfaceddev
-          </a>{' '}
-          or via my twitter/X account
-          <a
-            href="https://x.com/GenzaGenza"
-            target="_blank"
-            className="ml-1 text-green-400"
-          >
-            @GenzGenza
-          </a>
-        </article>
-      </article>
-    ),
-    date: '19th Aug 2025',
-    posted: true,
-    edited: false,
-  },
-]
+export const TextContent = {
+  title: 'Thank you for Visiting',
+  content: 'I coded everything btw :3',
+  by: 'Null faced dev',
+}

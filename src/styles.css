@@ -9,6 +9,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* for calling card */
+
+@font-face{
+  font-family: 'Earwig Factory';
+  src:url('/fonts/earwig factory rg.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.P5titlefont {
+  font-family: "Earwig Factory", sans-serif;
+}
+
 .scroll_bar_::-webkit-scrollbar {
   width: 3px;
 }
@@ -39,6 +52,8 @@ code {
 .blue-progress {
   background: rgb(45, 153, 241);
 }
+
+
 @media (width > 2200px) {
   .shrinked {
     margin-left: 15%;

@@ -5,6 +5,8 @@ import { FaList } from 'react-icons/fa6'
 import { useNavigate } from '@tanstack/react-router'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
+import { FaPerbyte } from 'react-icons/fa'
+
 const Projects = React.memo(() => {
   const { LightTheme } = createThemeContext()
   const Route = useNavigate()
@@ -45,7 +47,7 @@ const Projects = React.memo(() => {
       >
         <div>
           <div className="flex justify-between w-full mx-1 px-2">
-            <h1 className="text-xl font-bold">Projects</h1>
+            <h1/>
             <button
               className={`${disabled && 'hidden'} scale-115 cursor-pointer hover:scale-120 transition-scale duration-200 ease-in-out`}
               onClick={handleClick}
@@ -59,7 +61,7 @@ const Projects = React.memo(() => {
         >
           {projectsData.items.map((item, i) => (
             <motion.div
-              className={`project_comp relative ${LightTheme ? 'bg-white' : 'bg-black'} min-h-55 max-h-60 w-full h-55 border overflow-hidden rounded-xl`}
+              className={`project_comp relative ${LightTheme ? 'bg-white' : 'bg-black'} min-h-55 max-h-60 w-full h-55  overflow-hidden rounded-xl`}
               key={i}
               layout
               whileInView={{

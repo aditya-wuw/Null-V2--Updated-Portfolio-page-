@@ -12,7 +12,7 @@ export default function Header() {
         <div className='relative top-1'>
           <div className="w-10 h-10 rounded-full overflow-hidden">
             <img
-              src='/Images_Optimized/Profile/logo_252.png'
+              src='/Images_Optimized/Profile/logo_new.png'
               loading='lazy'
               alt="Logo_nullfaced_dev.png"
               className="object-cover object-center"

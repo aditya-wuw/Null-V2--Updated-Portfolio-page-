@@ -7,13 +7,18 @@ import Details from '@/components/Mount/Profile/Details'
 import Skills from '@/components/Mount/Profile/Skills'
 import { createThemeContext } from '@/Context/context'
 import MusicEmbed from '@/components/Mount/Profile/MusicEmbed'
+import CallingCard from '@/components/Animated/CallingCard'
+import { TextContent } from '@/data/data'
+import Projects_desc from '@/components/Mount/Profile/Projects_desc'
 
 const Cover = React.lazy(() => import('@/components/Mount/Profile/Cover'))
 const Projects = React.lazy(() => import('@/components/Mount/Profile/Projects'))
 const Notes = React.lazy(() => import('@/components/Mount/Profile/Notes'))
 const Footer = React.lazy(() => import('@/components/footer'))
 const Playlist = React.lazy(() => import('@/components/Mount/Profile/Playlist'))
-const Bomberdilocrocodilo = React.lazy(()=>import('@/components/bomberdilocrocodilo'))
+const Bomberdilocrocodilo = React.lazy(
+  () => import('@/components/bomberdilocrocodilo'),
+)
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -66,6 +71,7 @@ function App() {
         </section>
         <section>
           <Suspense>
+            <Projects_desc/>
             <Projects />
           </Suspense>
         </section>
@@ -75,12 +81,17 @@ function App() {
           transition={{ duration: 0.5, ease: 'circInOut' }}
         >
           <Suspense>
-            <Notes />
+            <div className="flex max-md:flex-col gap-3 mb-2">
+              <Notes />
+              <div>
+                <CallingCard User_color='bg-blue-400' Text_content={TextContent}/>
+              </div>    
+            </div>
           </Suspense>
         </motion.section>
         <section>
           <Suspense>
-            <Bomberdilocrocodilo/>
+            <Bomberdilocrocodilo />
           </Suspense>
         </section>
         <footer className="w-full">

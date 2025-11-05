@@ -23,7 +23,7 @@ const Cover = React.memo(() => {
         <h1
           className={`absolute z-2 italic top-7 right-0 text-9xl max-lg:text-8xl max-lg:top-15 max-sm:text-7xl max-sm:top-10 font-extrabold ${LightTheme ? 'text-blue-400' : 'text-black'}`}
         >
-          AM
+          アディ
         </h1>
         <video
           src={video}

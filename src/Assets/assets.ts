@@ -5,6 +5,8 @@ import Fireship from "./fireship.jpg";
 import CV from '/Aditya Mandal Resume 2025.pdf'
 import minecraft_ from './Screenshot 2025.08.09 - 21.11.10.05.png'
 import vro from './vro.png'
+import phantomtheves from './callingcard/Phantom-Thieves-of-Hearts-Logo.png'
+
 export const assets = {
-   screenshot1,screenshot2,screenshot5,Fireship,CV,minecraft_,vro
+   screenshot1,screenshot2,screenshot5,Fireship,CV,minecraft_,vro,phantomtheves
 }

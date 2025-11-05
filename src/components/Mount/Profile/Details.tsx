@@ -7,6 +7,7 @@ import { PiReadCvLogoBold } from 'react-icons/pi'
 import { GrTechnology } from 'react-icons/gr'
 import React, { Suspense } from 'react'
 import { BiCertification } from 'react-icons/bi'
+import { RiReactjsLine } from 'react-icons/ri'
 
 const Live = React.lazy(() => import('@/components/Animated/Live'))
 
@@ -65,14 +66,14 @@ const Details = React.memo(() => {
           <GrTechnology className="w-4 h-4 hover:scale-115 scale-100 cursor-pointer" />
           <h1>Certification -</h1>
           {details.certification.map((item, i) => (
-            <a href={item.path} key={i} className="relative group">
+            <a href={item.path} target='_blank' key={i} className="relative group">
               <span>
                 <span
-                  className={`absolute -top-10 -left-5 z-1 p-2 opacity-0 group-hover:opacity-100 rounded-2xl text-center ${LightTheme ? 'bg-black text-white' : 'bg-white text-black'}`}
+                  className={`absolute pointer-events-none w-15 text-xs bottom-5 -left-5 z-1 p-1 opacity-0 group-hover:opacity-100 rounded-xl text-center ${LightTheme ? 'bg-black text-white' : 'bg-white text-black'}`}
                 >
                   {item.label}
                 </span>
-                <BiCertification />{' '}
+                <RiReactjsLine />
               </span>
             </a>
           ))}

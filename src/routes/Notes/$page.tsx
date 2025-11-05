@@ -3,7 +3,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import {motion} from 'motion/react'
 import { MdArrowBackIos } from 'react-icons/md'
-import { Notes_blog} from '@/data/data'
+import { Notes_blog} from '@/data/blogdata'
 export const Route = createFileRoute('/Notes/$page')({
   component: RouteComponent,
 })
@@ -40,7 +40,7 @@ function RouteComponent() {
                 {item.title}
               </h1>
               <h1>{item.posted && !item.edited ? "posted on ": "edited " }{item.date}</h1>
-              {item.banner != '' && <div className='h-55 max-[482px]:h-35 w-[100%] overflow-hidden rounded-2xl relative'>
+              {item.banner != null && <div className='h-55 max-[482px]:h-35 w-[100%] overflow-hidden rounded-2xl relative'>
                 <img onLoad={()=>setloading(true)} src={item.banner} width={2000} height={300} className='object-cover 2xl:-top-30 xl:-top-15 absolute'/>
               </div>}
               <section className="text-md max-lg:text-sm tracking-wide">{item.description}</section>
