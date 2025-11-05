@@ -5,7 +5,6 @@ import { FaList } from 'react-icons/fa6'
 import { useNavigate } from '@tanstack/react-router'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
-import { FaPerbyte } from 'react-icons/fa'
 
 const Projects = React.memo(() => {
   const { LightTheme } = createThemeContext()

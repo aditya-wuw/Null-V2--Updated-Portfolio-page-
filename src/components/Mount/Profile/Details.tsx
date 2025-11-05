@@ -6,7 +6,6 @@ import { MdAttachEmail } from 'react-icons/md'
 import { PiReadCvLogoBold } from 'react-icons/pi'
 import { GrTechnology } from 'react-icons/gr'
 import React, { Suspense } from 'react'
-import { BiCertification } from 'react-icons/bi'
 import { RiReactjsLine } from 'react-icons/ri'
 
 const Live = React.lazy(() => import('@/components/Animated/Live'))
