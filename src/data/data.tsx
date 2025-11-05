@@ -362,6 +362,6 @@ export const projectsData = {
 
 export const TextContent = {
   title: 'Thank you for Visiting',
-  content: 'I coded everything btw :3',
+  content: 'No UI component only Code :3',
   by: 'Null faced dev',
 }

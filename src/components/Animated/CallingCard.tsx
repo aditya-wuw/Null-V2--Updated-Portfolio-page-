@@ -79,7 +79,7 @@ const CallingCard = ({ User_color, Text_content }: props) => {
       variants={fadeAnimation}
       animate={'fade'}
     >
-      <span className='P5titlefont rotate-15 absolute top-5 left-5 text-4xl text-white z-20 group-hover:opacity-100 opacity-0 transition duration-200 ease-in-out'>Click ?</span>
+      <span className='P5titlefont rotate-15 absolute top-5 left-5 text-4xl text-white z-20 group-hover:opacity-100 opacity-0 max-lg:opacity-100 transition duration-200 ease-in-out'>Tap ?</span>
       {content}
       <motion.img
         src={phantomtheves}
