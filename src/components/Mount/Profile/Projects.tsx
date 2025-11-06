@@ -14,12 +14,12 @@ const Projects = React.memo(() => {
   }
   const [islist, setislist] = useState(false)
   const [disabled, setdisabled] = useState(false)
-  const [duration,setduration] = useState(0)
-  
+  const [duration, setduration] = useState(0)
+
   const check_WindowSize = () => {
     setislist(window.innerWidth > 1024)
     setdisabled(window.innerWidth < 1280)
-    if(disabled){
+    if (disabled) {
       setduration(1)
     }
   }
@@ -31,22 +31,22 @@ const Projects = React.memo(() => {
       window.removeEventListener('resize', check_WindowSize)
     }
   }, [])
-  
-  const handleClick = () =>{
+
+  const handleClick = () => {
     setduration(0.13)
-    setislist((prev)=>!prev)
+    setislist((prev) => !prev)
   }
 
   return (
     <div
-      className={`p-[1px] select-none  ${LightTheme ? 'bg-gradient-to-l from-neutral-500 text-black  rounded-xl ' : 'bg-gradient-to-r from-neutral-500 text-white  rounded-xl'}`}
+      className={`p-px select-none  ${LightTheme ? 'bg-linear-to-l from-neutral-500 text-black  rounded-xl ' : 'bg-linear-to-r from-neutral-500 text-white  rounded-xl'}`}
     >
       <div
         className={`p-3 rounded-xl ${LightTheme ? 'bg-white' : 'bg-black text-white  rounded-xl'}`}
       >
         <div>
           <div className="flex justify-between w-full mx-1 px-2">
-            <h1/>
+            <h1 />
             <button
               className={`${disabled && 'hidden'} scale-115 cursor-pointer hover:scale-120 transition-scale duration-200 ease-in-out`}
               onClick={handleClick}
@@ -64,7 +64,7 @@ const Projects = React.memo(() => {
               key={i}
               layout
               whileInView={{
-                y:[20,0]
+                y: [20, 0],
               }}
               transition={{ duration: duration, ease: 'easeInOut' }}
             >
@@ -88,13 +88,22 @@ const Projects = React.memo(() => {
               </div>
               <div
                 className="p-3 select-none cursor-pointer  "
-                onClick={() => Navigate(item.Link)} title={"view details "+item.title}
-              > 
+                onClick={() => Navigate(item.Link)}
+                title={'view details ' + item.title}
+              >
                 <h1 className="text-xl font-bold">{item.title}</h1>
                 <h1 className="lg:text-sm text-xs">{item.description}</h1>
-                {!islist && !disabled && <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1, ease:"easeInOut"}}>{item.additional_dec}</motion.div>}
+                {!islist && !disabled && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  >
+                    {item.additional_dec}
+                  </motion.div>
+                )}
               </div>
-              <div className="px-3 mt-4 flex gap-2 items-center justify-between mr-1 absolute w-[100%] bottom-3 z-10">
+              <div className="px-3 mt-4 flex gap-2 items-center justify-between mr-1 absolute w-full bottom-3 z-10">
                 <div className="flex gap-2">
                   {item.links[0]?.url !== 'none' && (
                     <a href={item.links[0]?.url} target="_blank">
