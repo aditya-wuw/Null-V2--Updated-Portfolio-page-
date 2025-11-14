@@ -1,11 +1,10 @@
-import { assets } from '../Assets/assets'
 
 import { FaFigma, FaNodeJs, FaPython, FaReact } from 'react-icons/fa'
 import {
   RiNextjsFill,
   RiReactjsFill,
-  RiVideoOnAiFill,
   RiTailwindCssFill,
+  RiVideoOnAiFill,
 } from 'react-icons/ri'
 import {
   SiAdobephotoshop,
@@ -19,6 +18,7 @@ import {
 } from 'react-icons/si'
 import { PiFileSql, PiProjectorScreenFill } from 'react-icons/pi'
 import { GrGithub } from 'react-icons/gr'
+import { assets } from '../Assets/assets'
 
 export const navLinks = [
   { id: 'skills', label: 'Skills' },
@@ -30,11 +30,11 @@ export const heroData = {
   name: 'Aditya Mandal',
   role: 'aka @NulledFacedDev',
   about_ln1:
-    'Developer dabbling in Full-Stack with 1+ year of hands-on experience in web apps and website development -',
+    'Developer dabbling in Full-Stack with 1+ year of hands-on learning experience in web apps and website development -',
   about_ln2:
     "currently a college student. I'm a self taught developer usually creating apps or sites using React, Next, TanStack, Supabase and TailwindCSS",
   about_ln3:
-    "I find Japanese culture really cool, and I've been learning the language in my free time. And yes, I do play Persona games a lot — in case that wasn’t obvious! xD",
+    "I am open to freelance opportunities and contributions. Please reach out if you have a project in mind",
 }
 
 export const contactData = {
@@ -65,7 +65,7 @@ export const details = {
   ),
 }
 
-const icon_size: string = 'w-7 h-7'
+const icon_size = 'w-7 h-7'
 export const skillsData = {
   title: 'Skills',
   items: [
@@ -362,6 +362,6 @@ export const projectsData = {
 
 export const TextContent = {
   title: 'Thank you for Visiting',
-  content: 'No UI component only Code :3',
+  content: 'I wrote all UI code :3',
   by: 'Null faced dev',
 }

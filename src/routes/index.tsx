@@ -28,7 +28,7 @@ function App() {
   const { LightTheme } = createThemeContext()
   return (
     <div>
-      <div className={`flex flex-col gap-2 break-words h-screen rounded-2xl`}>
+      <div className={`flex flex-col gap-2 wrap-break-word h-screen rounded-2xl`}>
         <section>
           <div
             className={`w-full max-sm:h-25 sm:h-35 max-h-50 overflow-hidden rounded-2xl relative select-none ${LightTheme ? 'bg-gray-400' : 'bg-black'}`}

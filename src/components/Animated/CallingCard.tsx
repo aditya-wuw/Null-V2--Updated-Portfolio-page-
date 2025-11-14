@@ -1,5 +1,7 @@
-import { useState, type JSX } from 'react'
-import { motion, type Variants } from 'motion/react'
+import {  useState } from 'react'
+import {  motion } from 'motion/react'
+import type {Variants} from 'motion/react';
+import type {JSX} from 'react';
 import { assets } from '@/Assets/assets'
 
 const { phantomtheves } = assets
@@ -18,6 +20,7 @@ const CallingCard = ({ User_color, Text_content }: props) => {
   const [flipped, setflipped] = useState(false)
 
   const fadeAnimation: Variants = {
+    // eslint-disable-next-line no-shadow
     fade: (flipped: boolean) => ({
       opacity: flipped ? 1 : 0,
       transition: { duration: 0.2, ease: 'easeInOut' },
@@ -43,7 +46,7 @@ const CallingCard = ({ User_color, Text_content }: props) => {
   },
 };
 
-  const sizes: Array<String> = [
+  const sizes: Array<string> = [
     'lg:w-190 lg:h-190 w-85 h-85',
     'lg:w-170 lg:h-170 w-75 h-75',
     'lg:w-150 lg:h-150 w-65 h-65',
@@ -53,13 +56,9 @@ const CallingCard = ({ User_color, Text_content }: props) => {
   ]
 
   let content: JSX.Element | null = null
-  const color: string = User_color??'bg-red-500'
-  const Text = Text_content ?? {
-    title: 'To the follower of goon maxing',
-    content:
-      'I am the Null faced dev. Your warped conscience has been exposed to the world, and your shame can no longer be hidden. I have chosen to steal your heart. Prepare yourself',
-    by: "Null faced dev"
-  }
+
+  const color: string = User_color
+  const Text = Text_content 
 
   for (let i = sizes.length - 1; i >= 0; i--) {
     content = (
